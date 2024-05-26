@@ -3,7 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 
-const routes: Routes = [
+export const routes: Routes = [
+  {
+    path: '', 
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(x => x.LoginModule)
+    }
 ];
 
 @NgModule({
