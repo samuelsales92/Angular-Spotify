@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { autenticadorGuard } from './guards/guards/autenticador.guard';
 
 
 
@@ -10,7 +11,12 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login',
+    path: 'player',
+    loadChildren: () => import('./pages/player/player.module').then(x => x.PlayerModule),
+    canMatch: [autenticadorGuard]
+  },
+  {
+    path: 'login', 
     loadChildren: () => import('./pages/login/login.module').then(x => x.LoginModule)
     }
 ];
