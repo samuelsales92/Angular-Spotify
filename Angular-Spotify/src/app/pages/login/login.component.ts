@@ -23,6 +23,6 @@ export class LoginComponent {
   }
   
 abrirPaginaLogin() {
-  window.location.href = (this.spotifyservice.obterUrlLogin());
+  window.location.href = this.spotifyservice.obterUrlLogin();
   }
 }
