@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { autenticadorGuard } from './guards/guards/autenticador.guard';
+import { canMatchGuard } from './guards/guards/autenticador.guard';
 
 
 
@@ -13,7 +13,7 @@ export const routes: Routes = [
   {
     path: 'player',
     loadChildren: () => import('./pages/player/player.module').then(x => x.PlayerModule),
-    canMatch: [autenticadorGuard]
+    canMatch: [canMatchGuard]
   },
   {
     path: 'login', 
@@ -25,5 +25,7 @@ export const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
+
 export class AppRoutingModule { }
 
