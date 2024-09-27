@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { canMatchGuard } from './guards/guards/autenticador.guard'; // Importa o guard
+import { LoginComponent } from './pages/login/login.component';
+import { PlayerComponent } from './pages/player/player.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login', // Redireciona para login
+    redirectTo: 'player', // Redireciona para player
     pathMatch: 'full' // Garante que o redirecionamento ocorre se a URL for vazia
   },
   {
@@ -16,11 +18,19 @@ export const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(x => x.LoginModule)
-  }
+  },
+  // { path: 'player', component: PlayerComponent},
+   {
+     path: 'not-found',
+     component: LoginComponent, // Página de erro personalizada
+  },
+   { path: '**', redirectTo: '/not-found' }
 ];
 
+// ERROR RuntimeError: NG04002: Cannot match any routes. URL Segment: 'player' so foi possivel criando uma rota coringa "erro" mas redirecionando para LoginComponent.
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], // Configura o roteamento na aplicação
+  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' })], // Configura o roteamento na aplicação
   exports: [RouterModule] // Exporta o RouterModule para ser usado em outros módulos
 })
 export class AppRoutingModule { }

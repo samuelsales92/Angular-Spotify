@@ -12,4 +12,7 @@ import { PlayerRotas } from './player.routes';
     RouterModule.forChild(PlayerRotas)
   ]
 })
-export class PlayerModule { }
+
+export class PlayerModule { 
+  
+}

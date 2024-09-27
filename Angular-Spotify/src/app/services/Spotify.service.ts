@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from '../../environments/environment.development';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { IUsuario } from '../Interfaces/IUsuario';
+import { SpotifyUserParaUsuario } from '../Common/spotifyHelper';
 
 
 @Injectable({
@@ -31,7 +32,7 @@ export class SpotifyService {
 
        this.definirAccessToken(token);
        await this.obterSpotifyUsuario();
-       return true;
+       return !!this.usuario;
       
 
      }catch(ex){
@@ -39,24 +40,31 @@ export class SpotifyService {
      }
    }
 
-   async obterSpotifyUsuario(): Promise<IUsuario | null> {
-    try {
-      const userInfo = await this.spotifyApi.getMe(); // Obtém o perfil do usuário do Spotify
+   async obterSpotifyUsuario() {
+    // try {
+      const userInfo = await this.spotifyApi.getMe();
+      this.usuario = SpotifyUserParaUsuario(userInfo);
+    
+    }
+      
+      
+      
+      // Obtém o perfil do usuário do Spotify
   
       // Mapeia os dados recebidos para o formato esperado por IUsuario
-      const usuario: IUsuario = {
-        id: userInfo.id || 'id padrão', // Atribui o id do usuário
-        nome: userInfo.display_name || 'Usuário sem nome', // Nome do usuário
-        imagemUrl: userInfo.images && userInfo.images.length > 0 ? userInfo.images[0].url : 'URL da imagem padrão', // URL da imagem
-      };
+      // const usuario: IUsuario = {
+      //   id: userInfo.id || 'id padrão', // Atribui o id do usuário
+      //   nome: userInfo.display_name || 'Usuário sem nome', // Nome do usuário
+      //   imagemUrl: userInfo.images && userInfo.images.length > 0 ? userInfo.images[0].url : 'URL da imagem padrão', // URL da imagem
+      // };
   
-      console.log('Usuário mapeado:', usuario);
-      return usuario; // Retorna o objeto do tipo IUsuario
-    } catch (error) {
-      console.error('Erro ao obter informações do usuário:', error);
-      return null; // Retorna null em caso de erro
-    }
-  }
+      // console.log('Usuário mapeado:', usuario);
+      // return usuario; // Retorna o objeto do tipo IUsuario
+  //   } catch (error) {
+  //     console.error('Erro ao obter informações do usuário:', error);
+  //     return null; // Retorna null em caso de erro
+  //   }
+  // }
   
   
   
