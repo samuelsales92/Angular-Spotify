@@ -87,6 +87,7 @@ export class SpotifyService {
     // Divide o hash por '&' para obter os parâmetros
     const params = window.location.hash.substring(1).split('&');
     return params[0].split('=')[1];
+    
   }
 
   definirAccessToken(token:string){
