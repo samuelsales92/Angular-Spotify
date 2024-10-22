@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { canMatchGuard } from './guards/guards/autenticador.guard'; // Importa o guard
 import { LoginComponent } from './pages/login/login.component';
+import { PlayerComponent } from './pages/player/player.component';
 
 
 export const routes: Routes = [
@@ -18,9 +19,8 @@ export const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(x => x.LoginModule)
-  },
-  // { path: 'player', component: PlayerComponent},
-   {
+  }, 
+  {
      path: 'not-found',
      component: LoginComponent, // Página de erro personalizada
   },
