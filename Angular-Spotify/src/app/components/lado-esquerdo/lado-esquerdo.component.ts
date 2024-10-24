@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faHome, faMusic, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-lado-esquerdo',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class LadoEsquerdoComponent {
 
+  homeIcone = faHome
+  pesquisarIcone = faSearch
+  playList = faMusic
 }
