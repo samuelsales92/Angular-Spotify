@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faHome, faMusic, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faGuitar, faHome, faMusic, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-lado-esquerdo',
@@ -8,7 +8,16 @@ import { faHome, faMusic, faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class LadoEsquerdoComponent {
 
+  menuSelecionado = 'Home';
+
+
+// Icones
   homeIcone = faHome
   pesquisarIcone = faSearch
-  playList = faMusic
+  artistaIcone = faGuitar;
+  playList = faMusic;
+
+  botaoClick(botao: string){
+    this.menuSelecionado = botao;
+  }
 }
