@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from '../../environments/environment.development';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { IUsuario } from '../Interfaces/IUsuario';
-import { SpotifyUserParaUsuario } from '../Common/spotifyHelper';
+import { SpotifyPlaylistParaPlaylist, SpotifyUserParaUsuario } from '../Common/spotifyHelper';
+import { IPlaylist } from '../Interfaces/IPlaylist';
+import { promises } from 'dns';
 
 
 @Injectable({
@@ -52,19 +54,7 @@ export class SpotifyService {
       // Obtém o perfil do usuário do Spotify
   
       // Mapeia os dados recebidos para o formato esperado por IUsuario
-      // const usuario: IUsuario = {
-      //   id: userInfo.id || 'id padrão', // Atribui o id do usuário
-      //   nome: userInfo.display_name || 'Usuário sem nome', // Nome do usuário
-      //   imagemUrl: userInfo.images && userInfo.images.length > 0 ? userInfo.images[0].url : 'URL da imagem padrão', // URL da imagem
-      // };
-  
-      // console.log('Usuário mapeado:', usuario);
-      // return usuario; // Retorna o objeto do tipo IUsuario
-  //   } catch (error) {
-  //     console.error('Erro ao obter informações do usuário:', error);
-  //     return null; // Retorna null em caso de erro
-  //   }
-  // }
+     
   
   
   
@@ -96,5 +86,15 @@ export class SpotifyService {
     
   }
 
+
+  
+  async buscarPlaylistUsuario(offset = 0, limit = 50): Promise<IPlaylist[]>{
+    const playlists = await this.spotifyApi.getUserPlaylists(this.usuario.id, { offset, limit});
+    console.log(playlists);
+    return playlists.items.map(SpotifyPlaylistParaPlaylist);
+  }
+
 }
+
+
 
