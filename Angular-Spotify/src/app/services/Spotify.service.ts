@@ -4,7 +4,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import { IUsuario } from '../Interfaces/IUsuario';
 import { SpotifyPlaylistParaPlaylist, SpotifyUserParaUsuario } from '../Common/spotifyHelper';
 import { IPlaylist } from '../Interfaces/IPlaylist';
-import { promises } from 'dns';
+
 
 
 @Injectable({
@@ -90,7 +90,6 @@ export class SpotifyService {
   
   async buscarPlaylistUsuario(offset = 0, limit = 50): Promise<IPlaylist[]>{
     const playlists = await this.spotifyApi.getUserPlaylists(this.usuario.id, { offset, limit});
-    console.log(playlists);
     return playlists.items.map(SpotifyPlaylistParaPlaylist);
   }
 
