@@ -15,7 +15,6 @@
     cursor: pointer;
 
     span {
-        display: inline-block;
         vertical-align: middle;
         width: 150px;
         white-space: nowrap;
@@ -30,6 +29,7 @@
     &.selecionado{
         background-color: $cor-primaria;
         color: white;
+        width: 100%;
         
         }   
     }

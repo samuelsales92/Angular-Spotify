@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faGuitar, faHome, faMusic, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { IPlaylist } from '../../Interfaces/IPlaylist';
 import { SpotifyService } from '../../services/Spotify.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-lado-esquerdo',
@@ -20,7 +21,9 @@ export class LadoEsquerdoComponent implements OnInit {
   artistaIcone = faGuitar;
   playList = faMusic;
 
-  constructor(private spotifyService: SpotifyService) {}
+  constructor( 
+    private router: Router,
+    private spotifyService: SpotifyService) {}
   
   ngOnInit(): void {
     this.buscarPlaylist();
@@ -28,6 +31,7 @@ export class LadoEsquerdoComponent implements OnInit {
 
   botaoClick(botao: string){
     this.menuSelecionado = botao;
+    this.router.navigateByUrl('player/home');
   }
 
   async buscarPlaylist(){
