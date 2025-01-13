@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { IArtista } from '../Interfaces/IArtista';
 
 import SpotifyWebApi from 'spotify-web-api-js';
+import { IMusica } from '../Interfaces/IMusica';
 
 
 
@@ -97,6 +98,19 @@ export class SpotifyService {
   }
 
 
+  async buscarTopArtistas(limit = 10 ):Promise<IArtista[]> {
+    const artistas = await this.spotifyApi.getMyTopArtists({ limit });
+    return artistas.items.map(SpotifyArtistaParaArtista);
+  }
+
+  async buscarMusicas(offset = 0, limit = 50):Promise<IMusica[]>{
+    const musica = await this.spotifyApi.getMySavedTracks({ offset, limit});
+    console.log(musica);
+    return[];
+  }
+
+
+
   logout(){
     localStorage.clear();
     this.router.navigate(['/login']);
@@ -104,10 +118,7 @@ export class SpotifyService {
 
 
 
-  async buscarTopArtistas(limit = 10 ):Promise<IArtista[]> {
-    const artistas = await this.spotifyApi.getMyTopArtists({ limit });
-    return artistas.items.map(SpotifyArtistaParaArtista);
-  }
+  
 }
 
 
