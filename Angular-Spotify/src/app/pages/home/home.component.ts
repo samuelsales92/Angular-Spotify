@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,  } from '@angular/core';
 import { IMusica } from '../../Interfaces/IMusica';
+import { SpotifyService } from '../../services/Spotify.service';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +12,15 @@ export class HomeComponent {
   musicas: IMusica[] = []
 
 
-  ngOnInit(): void {
+  constructor(
+    private spotifyService: SpotifyService
+  ){ }
 
+  ngOnInit(): void {
+  }
+
+  async obterMusicas(){
+    const musicas = this.spotifyService.buscarMusicas()
   }
 
 }
