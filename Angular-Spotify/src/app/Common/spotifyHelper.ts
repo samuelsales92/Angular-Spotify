@@ -1,7 +1,9 @@
+import { addMilliseconds, format } from "date-fns";
 import { IArtista } from "../Interfaces/IArtista";
 import { IMusica } from "../Interfaces/IMusica";
 import { IPlaylist } from "../Interfaces/IPlaylist";
 import { IUsuario } from "../Interfaces/IUsuario";
+
 
 
 
@@ -32,6 +34,12 @@ export function SpotifyPlaylistParaPlaylist(playlist: SpotifyApi.PlaylistObjectS
   }
 
 export function SpotifyTrackParaMusica(spotifyTrack: SpotifyApi.TrackObjectFull) : IMusica {
+  
+  const msParaMinutos = (ms: number) => {
+    const data = addMilliseconds(new Date(0), ms);
+    return format(data, 'mm:ss');
+  }
+  
   return { 
     id: spotifyTrack.id,
     titulo: spotifyTrack.name,
@@ -44,7 +52,7 @@ export function SpotifyTrackParaMusica(spotifyTrack: SpotifyApi.TrackObjectFull)
         id: artista.id,
         nome: artista.name
       })),
-      tempo: '',
+      tempo: msParaMinutos(spotifyTrack.duration_ms),
 
   }
 }
