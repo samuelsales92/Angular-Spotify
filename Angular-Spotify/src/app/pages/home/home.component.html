@@ -19,6 +19,17 @@
                 <th>Album</th>
             </tr>
         </thead>
+        <tbody>
+            <tr *ngFor="let musica of musicas">
+                <td>
+                    <fa-icon [icon]="playIcone"></fa-icon>
+                </td>
+                <td>{{ musica.titulo}}</td>
+                <td>{{ obterArtistas(musica)}}</td>
+                <td>{{ musica.tempo }}</td>
+                <td>{{ musica.album.nome }}</td>
+            </tr>
+        </tbody>
     </table>
 
 </div>

@@ -1,6 +1,7 @@
 import { Component,  } from '@angular/core';
 import { IMusica } from '../../Interfaces/IMusica';
 import { SpotifyService } from '../../services/Spotify.service';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,8 @@ import { SpotifyService } from '../../services/Spotify.service';
 export class HomeComponent {
 
   musicas: IMusica[] = []
+
+  playIcone = faPlay;
 
 
   constructor(
@@ -25,4 +28,7 @@ export class HomeComponent {
     console.log (this.musicas)
   }
 
+  obterArtistas(musica: IMusica){
+    return musica.artistas.map(artista => artista.nome).join(', ');
+  }
 }
