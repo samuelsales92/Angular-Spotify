@@ -17,10 +17,12 @@ export class HomeComponent {
   ){ }
 
   ngOnInit(): void {
+    this.obterMusicas();
   }
 
   async obterMusicas(){
-    const musicas = this.spotifyService.buscarMusicas()
+    this.musicas = await this.spotifyService.buscarMusicas()
+    console.log (this.musicas)
   }
 
 }

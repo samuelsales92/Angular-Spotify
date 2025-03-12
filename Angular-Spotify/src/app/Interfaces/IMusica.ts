@@ -1,9 +1,10 @@
 export interface IMusica  {
     id: string,
     titulo: string,
-    artitas: {
+    artistas: {
         id: string,
-        string: string
+        nome: string,
+        
     }[],
     album: {
         id: string,

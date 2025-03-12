@@ -26,6 +26,5 @@ export class PainelCentralComponent implements OnInit {
    if (!!artista)
     this.topArtista = artista.pop();
 
-   console.log(this.topArtista)
   }
 }
