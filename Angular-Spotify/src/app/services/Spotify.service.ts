@@ -108,6 +108,10 @@ export class SpotifyService {
     return musica.items.map( x => SpotifyTrackParaMusica(x.track));
   }
 
+  async excutarMusica(musicaId: string){
+    await this.spotifyApi.queue(musicaId);
+    await this.spotifyApi.skipToNext();
+  }
 
 
   logout(){

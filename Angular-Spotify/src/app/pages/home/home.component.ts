@@ -31,4 +31,8 @@ export class HomeComponent {
   obterArtistas(musica: IMusica){
     return musica.artistas.map(artista => artista.nome).join(', ');
   }
+
+  async executarMusica(musica: IMusica){
+    await this.spotifyService.excutarMusica(musica.id);
+  }
 }
