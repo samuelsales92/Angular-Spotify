@@ -3,6 +3,7 @@ import { IMusica } from '../../Interfaces/IMusica';
 import { SpotifyService } from '../../services/Spotify.service';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,10 +15,13 @@ export class HomeComponent {
 
   playIcone = faPlay;
 
+  
 
   constructor(
     private spotifyService: SpotifyService
-  ){ }
+  ){ 
+
+  }
 
   ngOnInit(): void {
     this.obterMusicas();
@@ -28,11 +32,11 @@ export class HomeComponent {
     console.log (this.musicas)
   }
 
-  obterArtistas(musica: IMusica){
-    return musica.artistas.map(artista => artista.nome).join(', ');
+  obterArtistas(musicas: IMusica){
+    return musicas.artistas.map(artista => artista.nome).join(', ');
   }
 
-  async executarMusica(musica: IMusica){
-    await this.spotifyService.excutarMusica(musica.id);
+  async executarMusica(musica: string){
+    await this.spotifyService.tocarMusica(musica);
   }
 }

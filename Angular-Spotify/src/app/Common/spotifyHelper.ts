@@ -54,5 +54,7 @@ export function SpotifyTrackParaMusica(spotifyTrack: SpotifyApi.TrackObjectFull)
       })),
       tempo: msParaMinutos(spotifyTrack.duration_ms),
 
+
   }
+
 }

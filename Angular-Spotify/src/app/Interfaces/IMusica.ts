@@ -11,5 +11,7 @@ export interface IMusica  {
         nome: string,
         imageUrl: string
     },
-    tempo: string
+    tempo: string,
 }
+
+

@@ -2,10 +2,10 @@ import { IArtista } from "../Interfaces/IArtista";
 import { IMusica } from "../Interfaces/IMusica";
 
 
-export function newArtista(): IArtista{
+export function newArtista(): IArtista {
     return {
         id: '',
-        nome:'',
+        nome: '',
         imagemUrl: ''
     }
 }
@@ -20,7 +20,8 @@ export function newMusica(): IMusica {
         },
         artistas: [],
         tempo: '',
-        titulo: ''
+        titulo: '',
+    
     }
 }
 

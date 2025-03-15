@@ -8,6 +8,8 @@ import { IArtista } from '../Interfaces/IArtista';
 
 import SpotifyWebApi from 'spotify-web-api-js';
 import { IMusica } from '../Interfaces/IMusica';
+import { parseJSON } from 'date-fns';
+import { JsonpClientBackend } from '@angular/common/http';
 
 
 
@@ -16,6 +18,9 @@ import { IMusica } from '../Interfaces/IMusica';
 })
 
 export class SpotifyService {
+
+
+  
 
   spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
   usuario: IUsuario | null = null;  // Inicializa como null
@@ -43,6 +48,7 @@ export class SpotifyService {
 
      }catch(ex){
       return false
+      
      }
    }
 
@@ -95,6 +101,7 @@ export class SpotifyService {
   async buscarPlaylistUsuario(offset = 0, limit = 50): Promise<IPlaylist[]>{
     const playlists = await this.spotifyApi.getUserPlaylists(this.usuario.id, { offset, limit});
     return playlists.items.map(SpotifyPlaylistParaPlaylist);
+    
   }
 
 
@@ -108,17 +115,45 @@ export class SpotifyService {
     return musica.items.map( x => SpotifyTrackParaMusica(x.track));
   }
 
-  async excutarMusica(musicaId: string){
-    await this.spotifyApi.queue(musicaId);
-    await this.spotifyApi.skipToNext();
+
+  async obterMusicaAtual(): Promise<IMusica>{
+    const musicaSpotify = await this.spotifyApi.getMyCurrentPlayingTrack();
+    return SpotifyTrackParaMusica(musicaSpotify.item);
   }
 
 
+ 
+async tocarMusica(uri: string) {
+  try {
+    const dispositivos = await this.spotifyApi.getMyDevices();
+    if (!dispositivos.devices.length) {
+      console.warn('⚠️ Nenhum dispositivo ativo encontrado!');
+      return;
+    }
+
+    const deviceId = dispositivos.devices[0].id; 
+
+    await this.spotifyApi.play({
+      uris: [uri],
+      device_id: deviceId 
+    });
+
+  } catch (error) {
+    console.error('❌ Erro ao tentar tocar a música:', error);
+  }
+}
+
+
+
+
+
+  
   logout(){
     localStorage.clear();
     this.router.navigate(['/login']);
   }
 
+  
   
 }
 
