@@ -27,6 +27,7 @@ export class LadoEsquerdoComponent implements OnInit {
   
   ngOnInit(): void {
     this.buscarPlaylist();
+    
   }
 
   botaoClick(botao: string){
@@ -36,7 +37,8 @@ export class LadoEsquerdoComponent implements OnInit {
 
   async buscarPlaylist(){
     this.playlists = await this.spotifyService.buscarPlaylistUsuario();
-    console.log(this.playList)
-   
+    console.log(this.playlists)
   }
+
+  
 }

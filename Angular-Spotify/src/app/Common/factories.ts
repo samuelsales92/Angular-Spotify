@@ -13,6 +13,7 @@ export function newArtista(): IArtista {
 export function newMusica(): IMusica {
     return {
         id: '',
+        uri: '',
         album: {
             id: '',
             imageUrl: '',

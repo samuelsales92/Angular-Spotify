@@ -1,5 +1,6 @@
 export interface IMusica  {
     id: string,
+    uri: string,
     titulo: string,
     artistas: {
         id: string,

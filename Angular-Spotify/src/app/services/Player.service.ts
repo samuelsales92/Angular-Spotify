@@ -10,6 +10,7 @@ import { SpotifyService } from './Spotify.service';
 export class PlayerService {
 
 musicaAtual = new BehaviorSubject<IMusica>(newMusica());
+timerId: any = null;
 
 constructor(private spotifyService: SpotifyService) {
   this.obterMusicaAtual();
@@ -18,12 +19,19 @@ constructor(private spotifyService: SpotifyService) {
 
 
 async obterMusicaAtual(){
+  clearTimeout(this.timerId)
+
   const musica = await this.spotifyService.obterMusicaAtual();
-  this.musicaAtual.next(musica);
+  this.definirMusicaAtual(musica);
+
+
+  this.timerId = setInterval(async () => {
+    await this.obterMusicaAtual();
+  }, 3000)
   }
 
-definirMusicaAtual(){
-  
+definirMusicaAtual(musica: IMusica){
+  this.musicaAtual.next(musica);
 }
 
 }

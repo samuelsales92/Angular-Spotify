@@ -115,15 +115,8 @@ export class SpotifyService {
     return musica.items.map( x => SpotifyTrackParaMusica(x.track));
   }
 
-
-  async obterMusicaAtual(): Promise<IMusica>{
-    const musicaSpotify = await this.spotifyApi.getMyCurrentPlayingTrack();
-    return SpotifyTrackParaMusica(musicaSpotify.item);
-  }
-
-
  
-async tocarMusica(uri: string) {
+async tocarMusica(musica: IMusica) {
   try {
     const dispositivos = await this.spotifyApi.getMyDevices();
     if (!dispositivos.devices.length) {
@@ -134,7 +127,7 @@ async tocarMusica(uri: string) {
     const deviceId = dispositivos.devices[0].id; 
 
     await this.spotifyApi.play({
-      uris: [uri],
+      uris: [musica.uri],
       device_id: deviceId 
     });
 
@@ -144,7 +137,10 @@ async tocarMusica(uri: string) {
 }
 
 
-
+async obterMusicaAtual(): Promise<IMusica> {
+  const musicaSpotify = await this.spotifyApi.getMyCurrentPlayingTrack();
+  return SpotifyTrackParaMusica(musicaSpotify.item);
+}
 
 
   

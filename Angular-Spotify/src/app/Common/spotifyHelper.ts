@@ -41,7 +41,8 @@ export function SpotifyTrackParaMusica(spotifyTrack: SpotifyApi.TrackObjectFull)
   }
   
   return { 
-    id: spotifyTrack.uri,
+    id: spotifyTrack.id,
+    uri: spotifyTrack.uri,
     titulo: spotifyTrack.name,
       album: {
         id: spotifyTrack.id,
