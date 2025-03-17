@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable, NgZone } from '@angular/core';
 import { IMusica } from '../Interfaces/IMusica';
 import { newMusica } from '../Common/factories';
 import { BehaviorSubject} from 'rxjs';
 import { SpotifyService } from './Spotify.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ timerId: any = null;
 
 constructor(private spotifyService: SpotifyService) {
   this.obterMusicaAtual();
+
  }
 
 
@@ -27,7 +29,7 @@ async obterMusicaAtual(){
 
   this.timerId = setInterval(async () => {
     await this.obterMusicaAtual();
-  }, 3000)
+  }, 1000)
   }
 
 definirMusicaAtual(musica: IMusica){

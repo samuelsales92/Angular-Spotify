@@ -1,4 +1,4 @@
-import { Component, OnDestroy,  } from '@angular/core';
+import { Component, inject, NgZone, OnDestroy,  } from '@angular/core';
 import { IMusica } from '../../Interfaces/IMusica';
 import { SpotifyService } from '../../services/Spotify.service';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -25,12 +25,15 @@ export class HomeComponent implements OnDestroy{
     private spotifyService: SpotifyService,
     private playerService: PlayerService
   ){ 
-
+    inject(NgZone).runOutsideAngular(() => {
+      setInterval(() => {}, 1000);
+    })
   }
  
   ngOnInit(): void {
     this.obterMusicas();
     this.obterMusicaAtual();
+    
   }
 
   ngOnDestroy(): void {
