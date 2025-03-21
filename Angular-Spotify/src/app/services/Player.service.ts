@@ -1,4 +1,4 @@
-import { inject, Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { IMusica } from '../Interfaces/IMusica';
 import { newMusica } from '../Common/factories';
 import { BehaviorSubject} from 'rxjs';
@@ -29,7 +29,7 @@ async obterMusicaAtual(){
 
   this.timerId = setInterval(async () => {
     await this.obterMusicaAtual();
-  }, 1000)
+  }, 3000)
   }
 
 definirMusicaAtual(musica: IMusica){

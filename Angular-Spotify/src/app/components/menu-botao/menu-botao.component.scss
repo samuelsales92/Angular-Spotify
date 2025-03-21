@@ -12,7 +12,7 @@
     text-align: left;
     font-weight: 600;
     font-size: 0.8rem;
-    cursor: pointer;
+    
 
     span {
         vertical-align: middle;
@@ -23,14 +23,21 @@
         text-overflow: ellipsis;
 
     }
-       color: $cor-primaria;
+       color: $text-color;
        background-color: transparent;
 
     &.selecionado{
-        background-color: $cor-primaria;
+        background-color: $hover-color;
         color: white;
         width: 100%;
         
         }   
+    }
+}
+
+.test{
+    :hover{
+        background-color: $hover-color;
+        width: 100%;      
     }
 }

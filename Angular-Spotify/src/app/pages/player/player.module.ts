@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+
 import { PlayerComponent } from './player.component';
 import { RouterModule} from '@angular/router';
 import { PlayerRotas } from './player.routes';
@@ -12,11 +14,15 @@ import { PainelCentralComponent } from '../../components/painel-central/painel-c
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
+
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { PainelDireitoComponent } from '../../components/painel-direito/painel-direito.component';
+
+
+
 
 
 
@@ -27,7 +33,9 @@ import { PainelDireitoComponent } from '../../components/painel-direito/painel-d
     RodapeUsuarioComponent,
     HomeComponent,
     PainelCentralComponent,
-    PainelDireitoComponent
+    PainelDireitoComponent,
+   
+    
     ],
   imports: [
     CommonModule,

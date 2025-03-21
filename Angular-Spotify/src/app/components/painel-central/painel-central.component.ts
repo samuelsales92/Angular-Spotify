@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../services/Spotify.service';
 import { IArtista } from '../../Interfaces/IArtista';
 import { newArtista } from '../../Common/factories';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-painel-central',

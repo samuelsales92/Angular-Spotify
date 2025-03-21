@@ -15,12 +15,15 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
     flex-direction: column;
     background-color: $cor-fundo2;
     box-shadow: 1px 1px 15px #00000012;
+    background-color: $secondary-color;
 
     .menus {
         flex-grow: 1;
         flex-direction: column;
         height: 100%;
         padding: 0px 40px 0px 40px; 
+       
+        }
 
     .image-container {
         min-height: $h-spotify-logo;
@@ -56,7 +59,7 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
                 align-self: flex-start;
                 font-weight: 700;
                 font-size: 0.7rem;
-                color: $preto-transparent-30;
+                color: $text-color;
             }
 
             .playlist-scroll{
@@ -83,7 +86,7 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
         height: $h-footer-user;
         width: 100%;
     }
-}
+
 
 .example-container {
     width: 300px;
@@ -102,3 +105,6 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
   .buton {
     padding: 10px;
   }
+
+
+  
