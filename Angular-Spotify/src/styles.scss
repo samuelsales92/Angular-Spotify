@@ -44,7 +44,7 @@ $Angular-Spotify-theme: mat.define-light-theme((
 html, body {
   margin: 0;
   padding: 0;
-  background-color: $cor-fundo;
+  background-color:$secondary-color;
   
 }
 
@@ -63,7 +63,7 @@ html, body {
 }
 
 .titulo{
-  color: $cor-primaria;
+  color: $text-color;
   display: block;
   font-weight: 700;
 

@@ -14,8 +14,7 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
     display: flex;
     flex-direction: column;
     background-color: $cor-fundo2;
-    box-shadow: 1px 1px 15px #00000012;
-    background-color: $secondary-color;
+    background-color: $hover-color;
 
     .menus {
         flex-grow: 1;
@@ -42,17 +41,6 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
             align-items: center;
         }
         
-
-        &.opcoes {
-            
-            min-height: $h-menu-opcoes;
-            flex-direction: column;
-            
-            * {
-                margin-bottom: $h-entre-menus;
-            }
-
-            }
 
             .playlist-titulo {
                 margin: 10px 0px;

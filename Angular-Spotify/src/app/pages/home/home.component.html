@@ -1,25 +1,22 @@
 <div class="minhas-musicas">
-    <span class="titulo-bg mt-4">
-        seu top art
-    </span>
-
     <app-painel-central class="mt-2 d-block"></app-painel-central>
 
-    <span class="titulo-bg mt-4">
-        Musicas Curtidas
+    <span class="titulo-bg mt-4 play-1">
+        <fa-icon class="play" [icon]="playIcone"></fa-icon>
     </span>
 
-    <table class="table mt-3">
+    <table class="table mt-3 ">
         <thead>
             <tr>
-                <th class="w-5">#</th>
-                <th class="w-35">Título</th>
-                <th class="w-30">Artista</th>
-                <th class="w-10 direita">Tempo</th>
-                <th class="w-20">Album</th>
+                <th>#</th>
+                <th>Título</th>
+                <th>Artista</th>
+                <th class="direita">Tempo</th>
+                
             </tr>
         </thead>
-        <tbody>
+
+        <tbody class="test">
             <tr *ngFor="let musica of musicas" (click)="executarMusica(musica)">
                 <td>
                     <fa-icon class="play" [icon]="playIcone"></fa-icon>
@@ -27,9 +24,10 @@
                 <td>{{ musica.titulo}}</td>
                 <td>{{ obterArtistas(musica)}}</td>
                 <td class="direita">{{ musica.tempo }}</td>
-                <td>{{ musica.album.nome }}</td>
+                
             </tr>
         </tbody>
+   
     </table>
 
 </div>

@@ -11,7 +11,7 @@
     border-radius: 5px;
     text-align: left;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 1.0rem;
     
 
     span {
@@ -27,7 +27,7 @@
        background-color: transparent;
 
     &.selecionado{
-        background-color: $hover-color;
+        background-color: $icon-color;
         color: white;
         width: 100%;
         
@@ -37,7 +37,8 @@
 
 .test{
     :hover{
-        background-color: $hover-color;
-        width: 100%;      
+        background-color: $icon-color;
+        width: 100%;
+        cursor: pointer;
     }
 }
