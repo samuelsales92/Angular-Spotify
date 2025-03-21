@@ -16,6 +16,7 @@ export class HomeComponent implements OnDestroy{
 
   musicas: IMusica[] = []
   musicaAtual: IMusica = newMusica();
+  
 
   playIcone = faPlay;
 
@@ -25,9 +26,6 @@ export class HomeComponent implements OnDestroy{
     private spotifyService: SpotifyService,
     private playerService: PlayerService
   ){ 
-    inject(NgZone).runOutsideAngular(() => {
-      setInterval(() => {}, 1000);
-    })
   }
  
   ngOnInit(): void {
@@ -61,6 +59,13 @@ export class HomeComponent implements OnDestroy{
 
   async executarMusica(musica: IMusica){
     await this.spotifyService.tocarMusica(musica);
-    this.playerService.definirMusicaAtual(musica)
+    //this.playerService.definirMusicaAtual(musica)
+  }
+
+
+  async playMusica(){
+   console.log ('musica atualll ', this.musicaAtual);
+    await this.executarMusica;
+    
   }
 }
