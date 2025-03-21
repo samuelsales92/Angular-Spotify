@@ -66,6 +66,7 @@ html, body {
   color: $text-color;
   display: block;
   font-weight: 700;
+  display: block;
 
   &-bg{
     @extend .titulo;

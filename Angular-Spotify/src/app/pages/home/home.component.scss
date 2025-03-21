@@ -1,18 +1,18 @@
 @import 'table';
 
-:host{
+:host {
     display: flex;
     justify-content: space-between;
 
 
-    .minhas-musicas{
-        padding:  0px 30px;
+    .minhas-musicas {
+        padding: 0px 30px;
         padding-bottom: 20px;
         width: 100%;
         max-height: 100vh;
         overflow-y: scroll;
 
-        &::-webkit-scrollbar{
+        &::-webkit-scrollbar {
             display: none;
         }
     }
@@ -21,10 +21,48 @@
         display: block;
     }
 
-    .painel-direito{
+    .painel-direito {
         height: 100%;
-       
+
+
+    }
+
+
+    .test {
+        cursor: pointer;
+
+        :hover {
+            opacity: 50%;
+
+        }
+    }
+
+    .play-button {
+        margin-top: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #1DB954;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
         
     }
 
+    .play-button:hover {
+        transform: scale(1.1);
+    }
+
+    .play-button::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 16px solid black;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        margin-left: 4px;
+    }
 }
+    
