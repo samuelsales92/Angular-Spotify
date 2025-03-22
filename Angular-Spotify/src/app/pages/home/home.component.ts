@@ -16,6 +16,11 @@ export class HomeComponent implements OnDestroy{
 
   musicas: IMusica[] = []
   musicaAtual: IMusica = newMusica();
+  musicaplay = this.musicas[1];
+  
+
+
+
   
 
   playIcone = faPlay;
@@ -24,7 +29,8 @@ export class HomeComponent implements OnDestroy{
 
   constructor(
     private spotifyService: SpotifyService,
-    private playerService: PlayerService
+    private playerService: PlayerService,
+    
   ){ 
   }
  
@@ -42,7 +48,6 @@ export class HomeComponent implements OnDestroy{
   obterMusicaAtual(){
    const sub =  this.playerService.musicaAtual.subscribe(musica => {
       this.musicaAtual = musica;
-      console.log('musica atualll ', this.musicaAtual);
     });
 
     this.subs.push(sub);
@@ -59,13 +64,14 @@ export class HomeComponent implements OnDestroy{
 
   async executarMusica(musica: IMusica){
     await this.spotifyService.tocarMusica(musica);
-    //this.playerService.definirMusicaAtual(musica)
-  }
+    console.log('aqui', musica)
+    this.playerService.definirMusicaAtual(musica)
+  };
 
 
   async playMusica(){
-   console.log ('musica atualll ', this.musicaAtual);
-    await this.executarMusica;
-    
+    console.log('aquii', this.musicas[1]);
+    this.spotifyService.tocarMusica(this.musicas[0])
+   
   }
 }
