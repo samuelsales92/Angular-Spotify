@@ -14,6 +14,7 @@ export class LadoEsquerdoComponent implements OnInit {
   menuSelecionado = 'Home';
 
   playlists: IPlaylist[] = [];
+  imagem: string[] = []
 
 // Icones
   homeIcone = faHome
@@ -37,8 +38,13 @@ export class LadoEsquerdoComponent implements OnInit {
 
   async buscarPlaylist(){
     this.playlists = await this.spotifyService.buscarPlaylistUsuario();
-    console.log('aquiii ', this.playlists)
+    const imagemUrl = this.playlists.map( x => x.imagemUrl);
+    this.imagem = imagemUrl;
+    console.log (this.imagem)
   }
 
+  async obterImagem(){
+    
+  }
   
 }

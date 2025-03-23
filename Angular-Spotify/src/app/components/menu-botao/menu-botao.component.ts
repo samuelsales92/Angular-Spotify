@@ -11,6 +11,9 @@ export class MenuBotaoComponent {
   descricao = '';
 
   @Input()
+  imagens = '';
+  
+  @Input()
   selecionado = false;
 
   @Output()

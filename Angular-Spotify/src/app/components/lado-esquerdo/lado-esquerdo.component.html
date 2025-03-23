@@ -1,40 +1,20 @@
-<div class="menus flex" >
-    <div class="image-container flex flex-center">
-        <img src="assets/images/spotify-logo.png" alt="">
-    </div>
+<div class="menus flex">
 
-    <app-menu-botao 
-        [descricao]="'Pesquisar'"
-        [selecionado]="menuSelecionado === 'Pesquisar'"
-        (click)="botaoClick('Pesquisar')">
-
-            <fa-icon [icon]="pesquisarIcone"></fa-icon>
-        </app-menu-botao>
-        
     <div class="menu-container flex">
         <span class="playlist-titulo">
             Sua biblioteca
         </span>
 
         <div class="playlist-scroll">
-            <app-menu-botao
-            *ngFor="let playlist of playlists"
-            [descricao]="playlist.nome"
-            [selecionado]="menuSelecionado === playlist.id"
-            (click)="botaoClick(playlist.id)"
-                >
-                <fa-icon 
-                [icon]="playList">
-
-                </fa-icon>
+            <app-menu-botao *ngFor="let playlist of playlists" [imagens] ="playlist.imagemUrl" [descricao]="playlist.nome" 
+                [selecionado]="menuSelecionado === playlist.id" (click)="botaoClick(playlist.id)">
             </app-menu-botao>
 
         </div>
     </div>
-    
+
 </div>
 
 <div class="usuario-info">
     <app-rodape-usuario></app-rodape-usuario>
 </div>
-

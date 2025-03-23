@@ -1,26 +1,39 @@
 @import 'variaveis';
 
 :host{
-    display: block;
+    display: flex;
     width: 100%;
 
 
     button{
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center;
     border: 0;
-    padding: 10px 0px 10px 20px;
-    border-radius: 5px;
-    text-align: left;
     font-weight: 600;
     font-size: 1.0rem;
+    width: 100%;
+    
+
+    img {
+      
+        width: 60px;
+        height: 60px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
     
 
     span {
+        display: flex;
         vertical-align: middle;
         width: 150px;
         white-space: nowrap;
         margin-left: 15px;
         overflow: hidden;
         text-overflow: ellipsis;
+        
 
     }
        color: $text-color;
@@ -35,10 +48,10 @@
     }
 }
 
-.test{
+.playlis{
     :hover{
         background-color: $icon-color;
-        width: 100%;
         cursor: pointer;
+        
     }
 }

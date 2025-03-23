@@ -11,9 +11,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    
     
    
     
@@ -23,7 +25,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     AppRoutingModule,
     RouterModule,
     FontAwesomeModule,
-    MatSlideToggleModule],
+    MatSlideToggleModule,
+    ],
     
   providers: [
     provideClientHydration(),
