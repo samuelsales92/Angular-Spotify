@@ -1,9 +1,9 @@
 <div class="menus flex">
-
+    
     <div class="menu-container flex">
-        <span class="playlist-titulo">
+        <button class="playlist-titulo">
             Sua biblioteca
-        </span>
+        </button>
 
         <div class="playlist-scroll">
             <app-menu-botao *ngFor="let playlist of playlists" [imagens] ="playlist.imagemUrl" [descricao]="playlist.nome" 

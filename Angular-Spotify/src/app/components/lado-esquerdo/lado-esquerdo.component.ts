@@ -38,13 +38,6 @@ export class LadoEsquerdoComponent implements OnInit {
 
   async buscarPlaylist(){
     this.playlists = await this.spotifyService.buscarPlaylistUsuario();
-    const imagemUrl = this.playlists.map( x => x.imagemUrl);
-    this.imagem = imagemUrl;
-    console.log (this.imagem)
-  }
-
-  async obterImagem(){
-    
   }
   
 }
