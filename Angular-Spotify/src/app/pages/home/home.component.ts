@@ -7,6 +7,7 @@ import { newMusica } from '../../Common/factories';
 import { Subscription } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,6 +18,7 @@ export class HomeComponent implements OnDestroy{
   musicas: IMusica[] = []
   musicaAtual: IMusica = newMusica();
   musicaplay = this.musicas[1];
+  
   
 
 
@@ -71,7 +73,8 @@ export class HomeComponent implements OnDestroy{
 
   async playMusica(){
     console.log('aquii', this.musicas[1]);
-    this.spotifyService.tocarMusica(this.musicas[0])
+    this.spotifyService.tocarMusica(this.musicas[0]);
    
   }
+
 }

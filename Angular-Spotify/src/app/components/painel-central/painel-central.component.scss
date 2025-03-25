@@ -4,6 +4,7 @@
     height: 200px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 5px 10px 0px #ffffff;
 
 .artista{
     z-index: 1;
@@ -16,7 +17,7 @@
     flex-direction: column;
     justify-content: end;
     align-items: flex-start;
-    border-radius: 2;
+    
 }
 
 .image {

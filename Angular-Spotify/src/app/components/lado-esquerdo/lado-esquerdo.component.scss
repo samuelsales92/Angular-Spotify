@@ -9,20 +9,23 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
 
 :host{
     max-width: 300px;
-    min-height: 100vh;
+    height: calc(100% - 68px);
     overflow-y: hidden;
     display: flex;
     flex-direction: column;
     background-color: $cor-fundo2;
     background-color: $hover-color;
+    margin-top: 68px;
+    border-radius: 10px;
+    
 
     .menus {
         flex-grow: 1;
         flex-direction: column;
+        padding: 90px 30px 60px 20px;
         height: 100%;
-        padding: 100px 40px 0px 20px;
         width: 100%;
-       
+        border-radius: 10px;
         }
 
 
