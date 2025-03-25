@@ -41,4 +41,5 @@ export class LadoEsquerdoComponent implements OnInit {
     
   }
   
+  
 }
