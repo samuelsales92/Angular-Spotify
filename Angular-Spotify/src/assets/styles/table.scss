@@ -44,8 +44,7 @@
     }
 
     td {
-        padding: 10px 10px 0px 0px;
-        margin-top: 10px;
+        padding: 10px 10px 10px 0px;
         font-weight: 500;
         font-size: .85rem;
         color: $text-color;
@@ -130,6 +129,8 @@
 
 
 .direita {
+    width: 100%;
+    height: 100%;
     text-align: right;
     display: flex;
     justify-content: space-around;
