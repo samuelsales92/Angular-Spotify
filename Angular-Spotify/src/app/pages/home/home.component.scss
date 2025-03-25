@@ -32,8 +32,9 @@
         cursor: pointer;
 
         :hover {
-            opacity: 50%;
-
+            background-color: $icon-color;
+            box-shadow: 0px 0px 5px $icon-color;
+            color: $cor-primaria !important;
         }
     }
 
@@ -64,5 +65,10 @@
         border-bottom: 10px solid transparent;
         margin-left: 4px;
     }
+
+    .play-button:active {
+        transform: scale(0.9);
+    }
+
 }
     
