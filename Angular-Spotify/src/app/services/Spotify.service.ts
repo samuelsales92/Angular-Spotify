@@ -8,8 +8,7 @@ import { IArtista } from '../Interfaces/IArtista';
 
 import SpotifyWebApi from 'spotify-web-api-js';
 import { IMusica } from '../Interfaces/IMusica';
-import { parseJSON } from 'date-fns';
-import { JsonpClientBackend } from '@angular/common/http';
+
 
 
 
@@ -19,8 +18,6 @@ import { JsonpClientBackend } from '@angular/common/http';
 
 export class SpotifyService {
 
-
-  
 
   spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
   usuario: IUsuario | null = null;  // Inicializa como null
@@ -53,7 +50,7 @@ export class SpotifyService {
    }
 
    async obterSpotifyUsuario() {
-    // try {
+
       const userInfo = await this.spotifyApi.getMe();
       this.usuario = SpotifyUserParaUsuario(userInfo);
     

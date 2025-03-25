@@ -5,7 +5,7 @@ import { PagamentoComponent } from './pagamento.component';
 
 export const PagamentoRotas: Routes = [
     {
-        path: 'pagamento',
+        path: '',
         component: PagamentoComponent,
        
     }

@@ -38,6 +38,7 @@ export class LadoEsquerdoComponent implements OnInit {
 
   async buscarPlaylist(){
     this.playlists = await this.spotifyService.buscarPlaylistUsuario();
+    
   }
   
 }

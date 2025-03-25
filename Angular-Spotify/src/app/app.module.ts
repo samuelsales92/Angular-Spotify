@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 
 
@@ -27,6 +29,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     RouterModule,
     FontAwesomeModule,
     MatSlideToggleModule,
+    NgxSpinnerModule,
     ],
     
   providers: [

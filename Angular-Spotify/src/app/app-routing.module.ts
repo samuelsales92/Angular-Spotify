@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { canMatchGuard } from './guards/guards/autenticador.guard'; // Importa o guard
 import { LoginComponent } from './pages/login/login.component';
+import { SpinnerComponentComponent } from './pages/spinner-component/spinner-component.component';
+
 
 
 
@@ -10,28 +12,33 @@ import { LoginComponent } from './pages/login/login.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'player', // Redireciona para player
+    redirectTo: 'spotify', // Redireciona para player
     pathMatch: 'full' // Garante que o redirecionamento ocorre se a URL for vazia
   },
+  
   {
     path: 'player',
     loadChildren: () => import('./pages/player/player.module').then(x => x.PlayerModule),
     canMatch: [canMatchGuard] // Aplica o guard canMatch à rota 'player'
   },
   {
+    path: 'pagamento',
+    loadChildren: () => import('./pages/pagamento/pagamento.module').then(x => x.PagamentoModule),
+    canMatch: [canMatchGuard]
+  },
+  {
+    path: 'spotify',
+    loadChildren: () => import('./pages/spinner-component/spinner.module').then(x => x.SpinnerModule),
+  },
+
+  {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(x => x.LoginModule)
   }, 
 
   {
-    path: 'pagamento',
-    loadChildren: () => import('./pages/pagamento/pagamento.module').then(x => x.PagamentoModule),
-    canMatch: [canMatchGuard]
-  },
- 
-  {
      path: 'not-found',
-     component: LoginComponent, // Página de erro personalizada
+     component: SpinnerComponentComponent, // Página de erro personalizada
   },
    { path: '**', redirectTo: '/not-found' },
 
