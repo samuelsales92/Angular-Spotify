@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { PesquisarPainelTopoComponent } from './pesquisar-painel-topo.component';
+import { TopoPesquisarComponent } from './topo-pesquisar.component';
 
-describe('PesquisarPainelTopoComponent', () => {
-  let component: PesquisarPainelTopoComponent;
-  let fixture: ComponentFixture<PesquisarPainelTopoComponent>;
+describe('TopoPesquisarComponent', () => {
+  let component: TopoPesquisarComponent;
+  let fixture: ComponentFixture<TopoPesquisarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PesquisarPainelTopoComponent ]
+      declarations: [ TopoPesquisarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PesquisarPainelTopoComponent);
+    fixture = TestBed.createComponent(TopoPesquisarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -10,7 +10,7 @@ export const PlayerRotas: Routes = [
         children: [
             {
                 path: 'home',
-                component: HomeComponent
+                component: HomeComponent,
             }
         ]
     }

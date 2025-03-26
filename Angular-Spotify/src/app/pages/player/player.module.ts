@@ -20,7 +20,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { PainelDireitoComponent } from '../../components/painel-direito/painel-direito.component';
-import { PesquisarPainelTopoComponent } from '../../components/pesquisar-painel-topo/pesquisar-painel-topo.component';
+import { TopoPesquisarComponent } from '../../components/topo-pesquisar/topo-pesquisar.component';
 
 
 
@@ -35,7 +35,7 @@ import { PesquisarPainelTopoComponent } from '../../components/pesquisar-painel-
     HomeComponent,
     PainelCentralComponent,
     PainelDireitoComponent,
-    PesquisarPainelTopoComponent
+    TopoPesquisarComponent
    
     
     ],

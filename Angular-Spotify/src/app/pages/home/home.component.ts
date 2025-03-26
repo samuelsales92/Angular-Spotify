@@ -1,7 +1,6 @@
-import { Component, inject, NgZone, OnDestroy,  } from '@angular/core';
+import { Component, OnDestroy,  } from '@angular/core';
 import { IMusica } from '../../Interfaces/IMusica';
 import { SpotifyService } from '../../services/Spotify.service';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { PlayerService } from '../../services/Player.service';
 import { newMusica } from '../../Common/factories';
 import { Subscription } from 'rxjs';
@@ -18,14 +17,7 @@ export class HomeComponent implements OnDestroy{
   musicas: IMusica[] = []
   musicaAtual: IMusica = newMusica();
   musicaplay = this.musicas[1];
-  
-  
 
-
-
-  
-
-  playIcone = faPlay;
 
   subs: Subscription[] = [];
 
