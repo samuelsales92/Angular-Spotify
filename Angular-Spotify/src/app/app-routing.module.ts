@@ -26,8 +26,6 @@ export const routes: Routes = [
     canMatch: [canMatchGuard]
   },
 
-  
-
   {
     path: 'spotify',
     loadChildren: () => import('./pages/spinner-component/spinner.module').then(x => x.SpinnerModule),

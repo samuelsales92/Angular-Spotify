@@ -1,3 +1,5 @@
+import { query } from 'express';
+import { IMusica } from './../Interfaces/IMusica';
 import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from '../../environments/environment.development';
 import { IUsuario } from '../Interfaces/IUsuario';
@@ -7,7 +9,8 @@ import { Router } from '@angular/router';
 import { IArtista } from '../Interfaces/IArtista';
 
 import SpotifyWebApi from 'spotify-web-api-js';
-import { IMusica } from '../Interfaces/IMusica';
+import { types } from 'util';
+import { BehaviorSubject } from 'rxjs';
 
 
 
@@ -18,6 +21,9 @@ import { IMusica } from '../Interfaces/IMusica';
 
 export class SpotifyService {
 
+  private resultadosPesquisa = new BehaviorSubject<IMusica[]>([]); // Armazena os resultados
+  resultados$ = this.resultadosPesquisa.asObservable();
+
 
   spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
   usuario: IUsuario | null = null;  // Inicializa como null
@@ -26,10 +32,7 @@ export class SpotifyService {
     private router: Router,
   ) {
     this.spotifyApi = new SpotifyWebApi();
-
-
-
-  }
+}
 
   async inicializarUsuario() {
     if (!!this.usuario)
@@ -150,10 +153,27 @@ export class SpotifyService {
     this.router.navigate(['/login']);
   }
 
-  search(query: string, type: ('album' | 'artist' | 'playlist' | 'track')[]) {
-    return this.spotifyApi.search(query, type);
+
+
+  async obterPesquisaMusica(query: string, types: string[]): Promise<IMusica[]> {
+    try {
+      const resposta = await this.spotifyApi.search(query, ["track"]);// Busca no Spotify API
+
+      if (!resposta.tracks || !resposta.tracks.items) return [];
+      return resposta.tracks.items.map(track => SpotifyTrackParaMusica(track));
+      // Verifica se há resultados
+    } catch (error) {
+      console.error('Erro ao buscar músicas no Spotify:', error);
+      return [];
+    }
+  }
+
+
+  updateResults(novosResultados: IMusica[]) {
+    this.resultadosPesquisa.next(novosResultados);
   }
 }
+
 
 
 
