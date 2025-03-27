@@ -101,3 +101,83 @@
 
 
 
+.search-container {
+    display: flex;
+    width: 300px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 50px;
+    padding: 5px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
+    input {
+      width: 100%;
+      height: 30px;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 14px;
+      padding: 0;
+      outline: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+  
+      ::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+  
+      &:focus {
+        background-color: #444;
+        padding-left: 15px;
+      }
+  
+      &:hover {
+        background-color: #444;
+      }
+    }
+  }
+  
+  .search-results {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+  
+    .result-item {
+      display: flex;
+      align-items: center;
+      background-color: #444;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      padding: 10px;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #555;
+      }
+  
+      .result-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        margin-right: 15px;
+      }
+  
+      .result-details {
+        display: flex;
+        flex-direction: column;
+  
+        .result-name {
+          font-size: 16px;
+          font-weight: bold;
+          color: white;
+        }
+  
+        .result-artist {
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.7);
+        }
+      }
+    }
+  }
+  

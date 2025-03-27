@@ -12,15 +12,20 @@
         </label>
     </div>
 
-    <div class="resultados" *ngIf="results.length > 0">
-      <div *ngFor="let item of results" class="resultado-item">
-          <img *ngIf="item.images?.length" [src]="item.images[0].url" alt="Capa" class="cover">
-          <p>{{ item.name }} - {{ item.artists ? item.artists[0].name : 'Artista' }}</p>
-      </div>
-  </div>
-
     <app-rodape-usuario></app-rodape-usuario>
-   
+
+  </div>
+ <!-- Resultados da pesquisa -->
+ <div *ngIf="results.length > 0" class="search-results">
+  <div class="result-item" *ngFor="let item of results">
+    <img *ngIf="item.images?.length" [src]="item.images[0].url" alt="Imagem" class="result-image" />
+    <div class="result-details">
+      <p class="result-name">{{ item.name }}</p>
+      <p class="result-artist" *ngIf="item.artists">{{ item.artists[0].name }}</p>
+    </div>
+  </div>
 </div>
+
+
 
 
