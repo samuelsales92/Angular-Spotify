@@ -8,9 +8,16 @@
         </button>
         <label class="input-div">
           <i class="fa-solid fa-magnifying-glass fa-sm" style="color: #fafafa;"></i>
-        <input type="text" placeholder="O que você quer ouvir?"> 
+        <input type="text" placeholder="O que você quer ouvir?" (input)="buscarPesquisa($event)"> 
         </label>
     </div>
+
+    <div class="resultados" *ngIf="results.length > 0">
+      <div *ngFor="let item of results" class="resultado-item">
+          <img *ngIf="item.images?.length" [src]="item.images[0].url" alt="Capa" class="cover">
+          <p>{{ item.name }} - {{ item.artists ? item.artists[0].name : 'Artista' }}</p>
+      </div>
+  </div>
 
     <app-rodape-usuario></app-rodape-usuario>
    
