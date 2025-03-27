@@ -21,10 +21,13 @@ export const routes: Routes = [
     canMatch: [canMatchGuard] // Aplica o guard canMatch à rota 'player'
   },
   {
-    path: 'pagamento',
+    path: 'pay',
     loadChildren: () => import('./pages/pagamento/pagamento.module').then(x => x.PagamentoModule),
     canMatch: [canMatchGuard]
   },
+
+  
+
   {
     path: 'spotify',
     loadChildren: () => import('./pages/spinner-component/spinner.module').then(x => x.SpinnerModule),

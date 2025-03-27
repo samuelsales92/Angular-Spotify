@@ -5,6 +5,7 @@ import { SpotifyService } from '../../services/Spotify.service';
 import { PlayerService } from '../../services/Player.service';
 import { promises } from 'dns';
 import { set } from 'date-fns';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'topo-pesquisar',
@@ -21,6 +22,7 @@ export class TopoPesquisarComponent implements OnInit {
   constructor(
     private spotifyService: SpotifyService,
     private playerService: PlayerService,
+    private router: Router
 
   ) {  
 
@@ -43,12 +45,18 @@ export class TopoPesquisarComponent implements OnInit {
         (data) => {
           console.log('Resultados:', data);
           this.results = [...(data.tracks?.items || []), ...(data.artists?.items || [])];
+          this.router.navigate(['/player/search']);
         },
         (error) => {
           console.error('Erro ao buscar no Spotify', error);
         }
       );
     }, 500); // Aguarda 500ms antes de executar a busca
+  }
+
+
+  irParaHome() {
+    this.router.navigate(['/player/home']);
   }
   
 }
