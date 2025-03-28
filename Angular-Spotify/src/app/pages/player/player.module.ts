@@ -1,6 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 import { PlayerComponent } from './player.component';
@@ -24,6 +25,7 @@ import { MenuBotaoComponent } from '../../components/menu-botao/menu-botao.compo
 import {RodapeUsuarioComponent} from '../../components/rodape-usuario/rodape-usuario.component';
 import { HomeComponent } from '../home/home.component';
 import { PainelCentralComponent } from '../../components/painel-central/painel-central.component';
+import { PainelPesquisaComponent } from '../painel-pesquisa/painel-pesquisa.component';
 
 
 
@@ -39,6 +41,7 @@ import { PainelCentralComponent } from '../../components/painel-central/painel-c
     PainelCentralComponent,
     PainelDireitoComponent,
     TopoPesquisarComponent,
+    PainelPesquisaComponent
     
     
    
@@ -47,8 +50,12 @@ import { PainelCentralComponent } from '../../components/painel-central/painel-c
   imports: [
     CommonModule,
     FontAwesomeModule,
-    MatSidenavModule, MatFormFieldModule, MatSelectModule, MatButtonModule,
-    RouterModule.forChild(PlayerRotas)
+    MatSidenavModule, 
+    MatFormFieldModule, 
+    MatSelectModule, 
+    MatButtonModule,
+    FormsModule,
+    RouterModule.forChild(PlayerRotas),
   ]
 })
 

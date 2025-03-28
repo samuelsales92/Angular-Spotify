@@ -1,51 +1,72 @@
-.search-container {
-    max-width: 600px;
-    margin: 20px auto;
-    text-align: center;
-    
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
+@import 'table';
+
+:host {
+  display: flex;
+  justify-content: flex-start;  /* Centraliza horizontalmente */
+  align-items: flex-start;      /* Centraliza verticalmente */
+  background-color: white;
+  margin-top: 50px;
+  border: 5%;
+  height: 100vh; /* Garante que o contêiner ocupa toda a tela */
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 50%;  /* Define um tamanho para a div */
+  background-color: white;
+        
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
     
-    .result-item {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      background: #1a1a1a;
-      padding: 10px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      transition: transform 0.2s;
-  
-      &:hover {
-        transform: scale(1.05);
-      }
-      
-      .album-cover {
+
+
+    .test {
+        cursor: pointer;
+
+        :hover {
+            background-color: $icon-color;
+            box-shadow: 0px 0px 5px $icon-color;
+            color: $cor-primaria !important;
+        }
+    }
+
+    .play-button {
+        margin-top: 30px;
         width: 60px;
         height: 60px;
-        border-radius: 8px;
-        object-fit: cover;
-      }
-  
-      .info {
-        h3 {
-          font-size: 1.2rem;
-          margin: 0;
-        }
-  
-        p {
-          font-size: 1rem;
-          color: #aaa;
-          margin: 0;
-        }
-      }
+        background-color: #1DB954;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        
     }
-  
-    .no-results {
-      color: #888;
-      font-size: 1.2rem;
+
+    .play-button:hover {
+        transform: scale(1.1);
     }
-  }
-  
+
+    .play-button::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 16px solid black;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        margin-left: 4px;
+    }
+
+    .play-button:active {
+        transform: scale(0.9);
+    }
+
+
+    

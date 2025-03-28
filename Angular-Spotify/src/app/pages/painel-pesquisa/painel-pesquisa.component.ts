@@ -1,4 +1,4 @@
-import { SpotifyService } from './../../services/Spotify.service';
+import { PesquisaService } from '../../services/Pesquisa.service';
 
 import { Component, OnInit } from '@angular/core';
 
@@ -9,20 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./painel-pesquisa.component.scss']
 })
 export class PainelPesquisaComponent implements OnInit {
-  results: any[];
-  
 
-  constructor( 
-    private SpotifyService: SpotifyService
-    
+  results: any[];
+
+
+  constructor(
+    private pesquisaService: PesquisaService
+
   ) { }
 
   ngOnInit() {
-    this.SpotifyService.resultados$.subscribe(musicas => {
-      this.results = musicas; // Atualiza a lista de músicas/artistas
-    });
-
-    console.log(this.results)
+    
   }
   
 }

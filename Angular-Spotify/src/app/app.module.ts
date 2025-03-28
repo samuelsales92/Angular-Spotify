@@ -15,6 +15,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     FontAwesomeModule,
     MatSlideToggleModule,
     NgxSpinnerModule,
+  
     ],
     
   providers: [

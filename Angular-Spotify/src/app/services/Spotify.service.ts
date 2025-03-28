@@ -1,4 +1,3 @@
-import { query } from 'express';
 import { IMusica } from './../Interfaces/IMusica';
 import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from '../../environments/environment.development';
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
 import { IArtista } from '../Interfaces/IArtista';
 
 import SpotifyWebApi from 'spotify-web-api-js';
-import { types } from 'util';
+
 import { BehaviorSubject } from 'rxjs';
 
 
@@ -68,9 +67,6 @@ export class SpotifyService {
   // Obtém o perfil do usuário do Spotify
 
   // Mapeia os dados recebidos para o formato esperado por IUsuario
-
-
-
 
 
   obterUrlLogin() {
@@ -153,25 +149,6 @@ export class SpotifyService {
     this.router.navigate(['/login']);
   }
 
-
-
-  async obterPesquisaMusica(query: string, types: string[]): Promise<IMusica[]> {
-    try {
-      const resposta = await this.spotifyApi.search(query, ["track"]);// Busca no Spotify API
-
-      if (!resposta.tracks || !resposta.tracks.items) return [];
-      return resposta.tracks.items.map(track => SpotifyTrackParaMusica(track));
-      // Verifica se há resultados
-    } catch (error) {
-      console.error('Erro ao buscar músicas no Spotify:', error);
-      return [];
-    }
-  }
-
-
-  updateResults(novosResultados: IMusica[]) {
-    this.resultadosPesquisa.next(novosResultados);
-  }
 }
 
 
