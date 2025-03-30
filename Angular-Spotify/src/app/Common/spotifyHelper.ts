@@ -58,24 +58,9 @@ export function SpotifyTrackParaMusica(spotifyTrack: SpotifyApi.TrackObjectFull)
 
   }
 
-
 }
 
 
-export function converterParaMusica(artist: any): IMusica {
-  return {
-    id: artist.id,
-    uri: artist.uri,
-    titulo: artist.name,
-    artistas: [{ id: artist.id, nome: artist.name }],
-    album: {
-      id: artist.id,
-      nome: artist.name,
-      imageUrl: artist.images?.[0]?.url || 'assets/default.jpg',
-    },
-    tempo: '', // Artistas não têm tempo, então deixamos vazio
-  };
-}
 
 
 

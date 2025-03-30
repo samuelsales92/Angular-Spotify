@@ -1,6 +1,7 @@
+import { IMusica } from './../../Interfaces/IMusica';
 import { PesquisaService } from '../../services/Pesquisa.service';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 
 
 @Component({
@@ -10,16 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PainelPesquisaComponent implements OnInit {
 
-  results: any[];
+  resultado: IMusica [] = [];
+  query: string;
+  types: string[]
 
 
   constructor(
     private pesquisaService: PesquisaService
-
-  ) { }
+  ) { 
+    console.log(this.pesquisaService.result)
+  }
 
   ngOnInit() {
+    this.Atualizar();
     
   }
-  
+
+Atualizar(){
+  console.log(this.pesquisaService.result)
+}
 }

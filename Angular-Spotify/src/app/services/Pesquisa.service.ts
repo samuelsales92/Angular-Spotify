@@ -1,3 +1,4 @@
+import { LoginComponent } from './../pages/login/login.component';
 import { Injectable } from '@angular/core';
 import { IMusica } from '../Interfaces/IMusica';
 import { newMusica } from '../Common/factories';
@@ -12,10 +13,12 @@ import SpotifyWebApi from 'spotify-web-api-js';
 })
 export class PesquisaService {
 
+result: IMusica[] = []
+
 spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
 
 private resultadosPesquisa = new BehaviorSubject<IMusica[]>([]); // Armazena os resultados
-resultados$ = this.resultadosPesquisa.asObservable();
+
 
 constructor( ) {
     this.spotifyApi = new SpotifyWebApi();
@@ -37,7 +40,8 @@ constructor( ) {
 
 
 updateResults(novosResultados: IMusica[]) {
-    this.resultadosPesquisa.next(novosResultados);
+   this.resultadosPesquisa.next(novosResultados)
+   this.result = novosResultados;
   }
 }
 

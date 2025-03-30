@@ -11,7 +11,7 @@ import { SpinnerComponentComponent } from './pages/spinner-component/spinner-com
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'spotify', // Redireciona para player
+    redirectTo: 'login', // Redireciona para player
     pathMatch: 'full' // Garante que o redirecionamento ocorre se a URL for vazia
   },
   

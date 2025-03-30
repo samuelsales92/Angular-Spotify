@@ -20,12 +20,12 @@ export class TopoPesquisarComponent implements OnInit {
   query: string = '';
   results: IMusica[] = [];
   pesquisaControl = new FormControl('');
-  
-  
+
+
   constructor(
     private pesquisaService: PesquisaService,
     private router: Router,
-  ) {  
+  ) {
 
   }
 
@@ -36,24 +36,24 @@ export class TopoPesquisarComponent implements OnInit {
   buscarPesquisa(event: Event) {
     let target = event.target as HTMLInputElement;
     let value = target.value.trim();
-  
+
     if (value.length < 3) return;
-  
-      this.pesquisaService.obterPesquisaMusica(value, ['artist']).then((resultados: IMusica[]) => {
+
+    this.pesquisaService.obterPesquisaMusica(value, ['artist']).then((resultados: IMusica[]) => {
       this.pesquisaService.updateResults(resultados);
-      console.log(resultados)
+     // console.log(resultados)
       this.router.navigate(['/player/search'])
-      
+
     }).catch(error => {
       console.error('Erro ao buscar no Spotify:', error);
     });
 
-    
+
   }
-  
+
 
   irParaHome() {
     this.router.navigate(['/player/home']);
   }
-  
+
 }
