@@ -1,7 +1,11 @@
+import { PesquisaService } from './../../services/Pesquisa.service';
 import { IMusica } from './../../Interfaces/IMusica';
-import { PesquisaService } from '../../services/Pesquisa.service';
 
-import { Component, OnInit, NgZone } from '@angular/core';
+
+import { Component, OnInit} from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 
 
 @Component({
@@ -11,23 +15,38 @@ import { Component, OnInit, NgZone } from '@angular/core';
 })
 export class PainelPesquisaComponent implements OnInit {
 
-  resultado: IMusica [] = [];
-  query: string;
-  types: string[]
+  botao = ["artisas", "Playlists", "Músicas", "Álbuns", "Perfis", "Gêneros e momentos", "Podcasts e programas"] 
+  
 
+  resultados: IMusica[] = []
+
+  private destroy$ = new Subject<void>();
 
   constructor(
     private pesquisaService: PesquisaService
   ) { 
-    console.log(this.pesquisaService.result)
+ 
   }
 
   ngOnInit() {
-    this.Atualizar();
     
+    this.pesquisaService.result$
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((dados) => {
+      this.resultados = dados;
+      console.log(this.resultados)
+    });
+
+   
   }
 
-Atualizar(){
-  console.log(this.pesquisaService.result)
-}
+  ngOnDestroy() {
+    this.destroy$.next(); 
+    this.destroy$.complete();
+  }
+
+
+  obterArtistas(resultado: IMusica){
+    return resultado.artistas.map(artista => artista.nome).join(', ');
+  }
 }

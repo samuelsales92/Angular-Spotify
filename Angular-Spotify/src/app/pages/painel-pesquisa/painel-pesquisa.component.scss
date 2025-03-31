@@ -1,72 +1,132 @@
 @import 'table';
 
 :host {
-  display: flex;
-  justify-content: flex-start;  /* Centraliza horizontalmente */
-  align-items: flex-start;      /* Centraliza verticalmente */
-  background-color: white;
-  margin-top: 50px;
-  border: 5%;
-  height: 100vh; /* Garante que o contêiner ocupa toda a tela */
+    display: flex;
+    justify-content: flex-start;
+    /* Centraliza horizontalmente */
+    align-items: flex-start;
+    flex-direction: column;
+    /* Centraliza verticalmente */
+    background-color: $hover-color;
+    margin: 68px 20px 0px 20px;
+    border-radius: 15px;
+    height: 100vh;
+    /* Garante que o contêiner ocupa toda a tela */
 }
 
 .main {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 50%;  /* Define um tamanho para a div */
-  background-color: white;
-        
+    width: 100%;
+    margin: 10px;
+}
 
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-    
+.selecionar {
+    width: 100%;
+    margin: 10px;
+    display: flex;
 
 
-    .test {
+    button {
+        background-color: $icon-color;
+        margin-left: 15px;
+        padding: 10px;
+        border-width: 2px 4px;
+        border-radius: 40px;
+        border: none;
         cursor: pointer;
 
-        :hover {
-            background-color: $icon-color;
-            box-shadow: 0px 0px 5px $icon-color;
-            color: $cor-primaria !important;
-        }
+
     }
 
+
+    span {
+        color: $text-color;
+
+    }
+
+    button:hover {
+        background-color: #555;
+    }
+}
+
+.resultado {
+    display: flex;
+    flex-wrap: wrap; // Permite que os itens quebrem para a linha de baixo
+    gap: 10px; // Espaço entre os itens
+    align-items: flex-start;
+    flex-direction: row; // Mantém os itens lado a lado até não caber mais
+
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+
+.tipopesquisa {
+    display: flex;
+    flex-direction: column;
+    color: $text-color;
+
+    img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+
+    }
+
+    a {
+        color: #fff;
+    }
+}
+
+
+.test {
+    cursor: pointer;
+
+    :hover {
+        background-color: $icon-color;
+        box-shadow: 0px 0px 5px $icon-color;
+        color: $cor-primaria !important;
+    }
+}
+
+.artist-button {
+    display: flex;
+    background-color: $hover-color;
+    border: none;
+    flex-direction: column;
+    padding: 20px;
+
+}
+
+.artist-button:hover {
+    background-color: $icon-color;
+
+
     .play-button {
-        margin-top: 30px;
+
+        display: flex;
+           
+       }
+       
+       .play-button:hover {
         width: 60px;
         height: 60px;
         background-color: #1DB954;
         border: none;
         border-radius: 50%;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: right;
+        align-items:end;
         cursor: pointer;
-        
-    }
-
-    .play-button:hover {
-        transform: scale(1.1);
-    }
-
-    .play-button::before {
-        content: "";
-        width: 0;
-        height: 0;
-        border-left: 16px solid black;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        margin-left: 4px;
-    }
-
-    .play-button:active {
-        transform: scale(0.9);
-    }
+        z-index: 10;
+       
+       
+       .play-button:active {
+           transform: scale(0.9);
+       }
 
 
-    
+}
+
+}

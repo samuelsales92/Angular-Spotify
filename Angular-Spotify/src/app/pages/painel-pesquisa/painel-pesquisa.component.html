@@ -1,15 +1,18 @@
-<div class="main">
-    <div class="tipopesquisa">
-        <a href="">Tudo</a>
-        <a href="">Artistas</a>
-        <a href="">Playlists</a>
-        <a href="">Músicas</a>
-        <a href="">Álbuns</a>
-    </div>
-    <div class="selecionar">
+<div class="selecionar">
+    <div *ngFor="let topico of botao" class="selecionado">
         <button>
-            <span>Artista</span>
+            <span> {{ topico }} </span>
         </button>
     </div>
 </div>
 
+<div class="resultado">
+    <div *ngFor="let resultado of resultados" class="tipopesquisa">
+        <button class="artist-button">
+            <img src="{{ resultado.album.imageUrl }}" alt="">
+            <a href="">{{ obterArtistas(resultado)}}</a>
+            <a>Artista</a>
+            <button class="play-button"></button>
+        </button>
+    </div>
+</div>

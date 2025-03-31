@@ -2,7 +2,7 @@ import { LoginComponent } from './../pages/login/login.component';
 import { Injectable } from '@angular/core';
 import { IMusica } from '../Interfaces/IMusica';
 import { newMusica } from '../Common/factories';
-import { BehaviorSubject} from 'rxjs';
+import { BehaviorSubject, Observable} from 'rxjs';
 import { SpotifyService } from './Spotify.service';
 import {  SpotifyTrackParaMusica } from '../Common/spotifyHelper';
 import SpotifyWebApi from 'spotify-web-api-js';
@@ -18,7 +18,7 @@ result: IMusica[] = []
 spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
 
 private resultadosPesquisa = new BehaviorSubject<IMusica[]>([]); // Armazena os resultados
-
+public result$: Observable<IMusica[]> = this.resultadosPesquisa.asObservable();
 
 constructor( ) {
     this.spotifyApi = new SpotifyWebApi();
