@@ -47,6 +47,6 @@ export class PainelPesquisaComponent implements OnInit {
 
 
   obterArtistas(resultado: IMusica){
-    return resultado.artistas.map(artista => artista.nome).join(', ');
+    return resultado.artistas.slice(0, 1).map(artista => artista.nome)
   }
 }
