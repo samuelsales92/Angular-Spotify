@@ -1,3 +1,4 @@
+import { SpotifyService } from './../../services/Spotify.service';
 import { PesquisaService } from './../../services/Pesquisa.service';
 import { IMusica } from './../../Interfaces/IMusica';
 
@@ -23,7 +24,8 @@ export class PainelPesquisaComponent implements OnInit {
   private destroy$ = new Subject<void>();
 
   constructor(
-    private pesquisaService: PesquisaService
+    private pesquisaService: PesquisaService,
+    private SpotifyService:SpotifyService
   ) { 
  
   }
@@ -48,6 +50,9 @@ export class PainelPesquisaComponent implements OnInit {
     return resultado.artistas.slice(0, 1).map(artista => artista.nome)
   }
 
-
- 
+tocarPesquisa(resultados: IMusica){
+  this.SpotifyService.tocarMusica
+  console.log('aquiii')
+  
+}
 }
