@@ -20,12 +20,12 @@ import { BehaviorSubject } from 'rxjs';
 
 export class SpotifyService {
 
-  private resultadosPesquisa = new BehaviorSubject<IMusica[]>([]); // Armazena os resultados
+  private resultadosPesquisa = new BehaviorSubject<IMusica[]>([]); 
   resultados$ = this.resultadosPesquisa.asObservable();
 
 
   spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
-  usuario: IUsuario | null = null;  // Inicializa como null
+  usuario: IUsuario | null = null;  
 
   constructor(
     private router: Router,
@@ -61,13 +61,6 @@ export class SpotifyService {
     this.usuario = SpotifyUserParaUsuario(userInfo);
 
   }
-
-
-
-  // Obtém o perfil do usuário do Spotify
-
-  // Mapeia os dados recebidos para o formato esperado por IUsuario
-
 
   obterUrlLogin() {
     const authEndipoint = `${SpotifyConfiguration.authEndpoint}?`;
@@ -120,7 +113,7 @@ export class SpotifyService {
     try {
       const dispositivos = await this.spotifyApi.getMyDevices();
       if (!dispositivos.devices.length) {
-        console.warn('⚠️ Nenhum dispositivo ativo encontrado!');
+        console.warn(' Nenhum dispositivo ativo encontrado!');
         return;
       }
 
@@ -132,7 +125,7 @@ export class SpotifyService {
       });
 
     } catch (error) {
-      console.error('❌ Erro ao tentar tocar a música:', error);
+      console.error(' Erro ao tentar tocar a música:', error);
     }
   }
 
