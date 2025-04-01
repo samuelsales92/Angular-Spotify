@@ -17,7 +17,7 @@ result: IMusica[] = []
 
 spotifyApi: SpotifyWebApi.SpotifyWebApiJs;
 
-private resultadosPesquisa = new BehaviorSubject<IMusica[]>([]); // Armazena os resultados
+private resultadosPesquisa = new BehaviorSubject<IMusica[]>([]); 
 public result$: Observable<IMusica[]> = this.resultadosPesquisa.asObservable();
 
 constructor( ) {
@@ -27,11 +27,10 @@ constructor( ) {
 
   async obterPesquisaMusica(query: string, types: string[]): Promise<IMusica[]> {
     try {
-      const resposta = await this.spotifyApi.search(query, ["track"]);// Busca no Spotify API
+      const resposta = await this.spotifyApi.search(query, ["track"]);
 
       if (!resposta.tracks || !resposta.tracks.items) return [];
       return resposta.tracks.items.map(track => SpotifyTrackParaMusica(track));
-      // Verifica se há resultados
     } catch (error) {
       console.error('Erro ao buscar músicas no Spotify:', error);
       return [];
