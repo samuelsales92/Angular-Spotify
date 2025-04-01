@@ -36,8 +36,6 @@ export class PainelPesquisaComponent implements OnInit {
       this.resultados = dados;
       console.log(this.resultados)
     });
-
-   
   }
 
   ngOnDestroy() {
@@ -49,4 +47,7 @@ export class PainelPesquisaComponent implements OnInit {
   obterArtistas(resultado: IMusica){
     return resultado.artistas.slice(0, 1).map(artista => artista.nome)
   }
+
+
+ 
 }
