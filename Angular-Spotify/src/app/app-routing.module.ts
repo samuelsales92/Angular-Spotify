@@ -11,14 +11,14 @@ import { SpinnerComponentComponent } from './pages/spinner-component/spinner-com
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login', // Redireciona para player
-    pathMatch: 'full' // Garante que o redirecionamento ocorre se a URL for vazia
+    redirectTo: 'login', 
+    pathMatch: 'full' 
   },
   
   {
     path: 'player',
     loadChildren: () => import('./pages/player/player.module').then(x => x.PlayerModule),
-    canMatch: [canMatchGuard] // Aplica o guard canMatch à rota 'player'
+    canMatch: [canMatchGuard] 
   },
   {
     path: 'pay',
@@ -38,7 +38,7 @@ export const routes: Routes = [
 
   {
      path: 'not-found',
-     component: SpinnerComponentComponent, // Página de erro personalizada
+     component: SpinnerComponentComponent,
   },
    { path: '**', redirectTo: '/not-found' },
 
