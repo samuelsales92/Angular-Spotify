@@ -12,45 +12,41 @@ export const canMatchGuard = (
   
   
 
-  // Verifica se o código está sendo executado no ambiente do navegador
+  
   if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') { 
     
-    const token = localStorage.getItem('token');  // Busca o token no localStorage
+    const token = localStorage.getItem('token');  
    
     if (token) {
-      // Se o token estiver presente, permite a navegação
       return new Promise<boolean>(async (resolve) => {
         try {
           const usuarioCriado = await spotifyservice.inicializarUsuario();
           
           if (usuarioCriado) {
-            resolve(true);  // Permite a navegação se o usuário for inicializado com sucesso
+            resolve(true);  
           } else {
-            resolve(naoAutenticado(router));  // Redireciona e bloqueia a rota
+            resolve(naoAutenticado(router));  
           }
         } catch (error) {
           console.error('Erro ao inicializar o usuário:', error);
-          resolve(naoAutenticado(router));  // Redireciona e bloqueia se houver erro
+          resolve(naoAutenticado(router));  
         }
       });
     }
     
-    // Redireciona para login se não houver token
+   
     console.log('Nenhum token encontrado. Redirecionando para login.');
-    return naoAutenticado(router);  // Se não houver token, redireciona para login
+    return naoAutenticado(router);  
   };
-  // Retorna true se não estiver no ambiente do navegador (não bloqueia o acesso)
-  return false; // Permite o acesso caso não esteja no navegador
+ 
+  return false; 
 };
 
 
-
-
-// Função para redirecionar e bloquear acesso
 function naoAutenticado(router: Router): boolean {
-  localStorage.clear();  // Limpa o localStorage
-  router.navigate(['/login']);  // Redireciona para a página de login
-  return false;  // Bloqueia a rota
+  localStorage.clear();  
+  router.navigate(['/login']); 
+  return false; 
 }
 
 
