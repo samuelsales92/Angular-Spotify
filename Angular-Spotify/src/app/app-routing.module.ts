@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { canMatchGuard } from './guards/guards/autenticador.guard'; // Importa o guard
+import { canMatchGuard } from './guards/guards/autenticador.guard'; 
 import { SpinnerComponentComponent } from './pages/spinner-component/spinner-component.component';
 
 
@@ -11,14 +11,14 @@ import { SpinnerComponentComponent } from './pages/spinner-component/spinner-com
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login', 
-    pathMatch: 'full' 
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
-  
+
   {
     path: 'player',
     loadChildren: () => import('./pages/player/player.module').then(x => x.PlayerModule),
-    canMatch: [canMatchGuard] 
+    canMatch: [canMatchGuard]
   },
   {
     path: 'pay',
@@ -34,22 +34,22 @@ export const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(x => x.LoginModule)
-  }, 
+  },
 
   {
-     path: 'not-found',
-     component: SpinnerComponentComponent,
+    path: 'not-found',
+    component: SpinnerComponentComponent,
   },
-   { path: '**', redirectTo: '/not-found' },
+  { path: '**', redirectTo: '/not-found' },
 
-   
-   
+
+
 ];
 
-// ERROR RuntimeError: NG04002: Cannot match any routes. URL Segment: 'player' so foi possivel criando uma rota coringa "erro" mas redirecionando para LoginComponent.
+// ERROR RuntimeError: NG04002: Cannot match any routes. URL Segment: 'player' so foi possivel criando uma rota coringa "erro" mas redirecionando para SpinnerComponentComponent
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' })], // Configura o roteamento na aplicação
-  exports: [RouterModule] // Exporta o RouterModule para ser usado em outros módulos
+  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' })], 
+  exports: [RouterModule] 
 })
 export class AppRoutingModule { }
