@@ -16,7 +16,6 @@ export class HomeComponent implements OnDestroy{
 
   musicas: IMusica[] = []
   musicaAtual: IMusica = newMusica();
-  musicaplay = this.musicas[1];
 
 
   subs: Subscription[] = [];
@@ -58,7 +57,6 @@ export class HomeComponent implements OnDestroy{
 
   async executarMusica(musica: IMusica){
     await this.spotifyService.tocarMusica(musica);
-    console.log('aqui', musica)
     this.playerService.definirMusicaAtual(musica)
   };
 

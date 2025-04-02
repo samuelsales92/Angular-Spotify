@@ -1,9 +1,9 @@
 <div class="play">
   <div class="info">
-    <img [src]="musicaAtual?.album.imageUrl" alt="Capa do Álbum" />
+    <img [src]="musica?.album.imageUrl" alt="Capa do Álbum" />
     <div>
-      <p class="titulo">{{ musicaAtual?.titulo }}</p>
-      <p class="artista">{{ musicaAtual?.artista }}</p>
+      <p class="titulo">{{ musica.titulo }}</p>
+      <p class="artista">{{ obterArtistas(musica)}}</p>
     </div>
   </div>
 
@@ -11,7 +11,7 @@
     <button (click)="voltarMusica()">
       <i class="fa-solid fa-backward-step"></i>
     </button>
-    <button (click)="togglePlayPause()">
+    <button (click)="musicaPlayPause()">
       <i class="{{ tocando ? 'fa-solid fa-circle-pause' : 'fa-solid fa-circle-play' }}"></i>
     </button>
     <button (click)="avancarMusica()">

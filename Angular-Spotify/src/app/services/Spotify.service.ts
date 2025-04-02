@@ -130,11 +130,17 @@ export class SpotifyService {
   }
 
 
+  pararMusica(musica: IMusica){
+    this.spotifyApi.pause({
+      uris: [musica.uri]
+    });
+  }
+
+
   async obterMusicaAtual(): Promise<IMusica> {
     const musicaSpotify = await this.spotifyApi.getMyCurrentPlayingTrack();
     return SpotifyTrackParaMusica(musicaSpotify.item);
   }
-
 
 
   logout() {
