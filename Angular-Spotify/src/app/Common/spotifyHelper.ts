@@ -1,6 +1,6 @@
+import { IMusica } from './../Interfaces/IMusica';
 import { addMilliseconds, format } from "date-fns";
 import { IArtista } from "../Interfaces/IArtista";
-import { IMusica } from "../Interfaces/IMusica";
 import { IPlaylist } from "../Interfaces/IPlaylist";
 import { IUsuario } from "../Interfaces/IUsuario";
 

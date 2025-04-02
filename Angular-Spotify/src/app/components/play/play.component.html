@@ -1,0 +1,25 @@
+<div class="play">
+  <div class="info">
+    <img [src]="musicaAtual?.album.imageUrl" alt="Capa do Álbum" />
+    <div>
+      <p class="titulo">{{ musicaAtual?.titulo }}</p>
+      <p class="artista">{{ musicaAtual?.artista }}</p>
+    </div>
+  </div>
+
+  <div class="controles">
+    <button (click)="voltarMusica()">
+      <i class="fa-solid fa-backward-step"></i>
+    </button>
+    <button (click)="togglePlayPause()">
+      <i class="{{ tocando ? 'fa-solid fa-circle-pause' : 'fa-solid fa-circle-play' }}"></i>
+    </button>
+    <button (click)="avancarMusica()">
+      <i class="fa-solid fa-forward-step"></i>
+    </button>
+  </div>
+
+  <div class="barra-progresso">
+    <input type="range" min="0" max="100" [(ngModel)]="progresso" />
+  </div>
+</div>

@@ -1,0 +1,52 @@
+.play {
+    display: flex;
+    position: fixed;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    z-index: 2;
+}
+
+  
+  .info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .titulo {
+    font-weight: bold;
+  }
+  
+  .artista {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  
+  .controles button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .barra-progresso input {
+    width: 100px;
+    cursor: pointer;
+  }
+  

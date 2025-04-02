@@ -26,6 +26,7 @@ import {RodapeUsuarioComponent} from '../../components/rodape-usuario/rodape-usu
 import { HomeComponent } from '../home/home.component';
 import { PainelCentralComponent } from '../../components/painel-central/painel-central.component';
 import { PainelPesquisaComponent } from '../painel-pesquisa/painel-pesquisa.component';
+import { PlayComponent } from '../../components/play/play.component';
 
 
 
@@ -41,7 +42,8 @@ import { PainelPesquisaComponent } from '../painel-pesquisa/painel-pesquisa.comp
     PainelCentralComponent,
     PainelDireitoComponent,
     TopoPesquisarComponent,
-    PainelPesquisaComponent
+    PainelPesquisaComponent,
+    PlayComponent
     
     
    
