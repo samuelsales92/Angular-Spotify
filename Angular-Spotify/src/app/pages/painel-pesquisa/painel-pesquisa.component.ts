@@ -36,7 +36,6 @@ export class PainelPesquisaComponent implements OnInit {
     .pipe(takeUntil(this.destroy$))
     .subscribe((dados) => {
       this.resultados = dados;
-      console.log(this.resultados)
     });
   }
 
@@ -50,9 +49,8 @@ export class PainelPesquisaComponent implements OnInit {
     return resultado.artistas.slice(0, 1).map(artista => artista.nome)
   }
 
-tocarPesquisa(resultados: IMusica){
-  this.SpotifyService.tocarMusica
-  console.log('aquiii')
-  
+tocarPesquisa(resultado: IMusica){
+  console.log(this.resultados)
+  this.SpotifyService.tocarMusica(resultado)
 }
 }
