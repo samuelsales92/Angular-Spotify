@@ -10,13 +10,13 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
 :host {
   max-width: 300px;
   height: calc(100% - 68px);
-  overflow-y: hidden;
   display: flex;
   flex-direction: column;
   background-color: $cor-fundo2;
   background-color: $hover-color;
   margin-top: 68px;
   border-radius: 10px;
+
 
 
   .menus {
@@ -26,7 +26,20 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
     height: 100%;
     width: 100%;
     border-radius: 10px;
+    align-items: center;
+    transition: all 0.3s ease;
   }
+
+  .pequeno {
+    width: 110px;
+
+    .ocultar{
+      display: none;
+      
+    }
+
+}
+
 
 
   .menu-container {
@@ -42,7 +55,7 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
       background-color: $hover-color;
       color: white;
       border: none;
-      padding: 20px 20px 20px 0px;
+      padding: 20px 0px 20px 0px;
       font-size: 18px;
       display: flex;
       align-items: center;
@@ -52,11 +65,16 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
 
     }
 
+
     .menu-button i {
       font-size: 24px;
-      /* Aumenta o tamanho do ícone */
       margin-right: 10px;
-      /* Espaçamento entre o ícone e o texto */
+      transition: 0.2s;
+      
+    }
+
+    .menu-button i:hover{
+      transform: scale(1.2);
     }
 
 
@@ -74,6 +92,7 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
       width: 100%;
       max-height: calc(95vh - $h-desconsiderar);
       overflow-y: auto;
+      overflow-x: hidden;
 
       /* Barra de rolagem */
       &::-webkit-scrollbar {

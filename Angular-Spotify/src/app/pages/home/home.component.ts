@@ -64,7 +64,6 @@ export class HomeComponent implements OnDestroy{
 
 
   async playMusica(){
-    console.log('aquii', this.musicas[1]);
     this.spotifyService.tocarMusica(this.musicas[0]);
    
   }

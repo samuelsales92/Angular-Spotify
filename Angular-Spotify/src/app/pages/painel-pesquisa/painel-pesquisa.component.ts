@@ -16,7 +16,7 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class PainelPesquisaComponent implements OnInit {
 
-  botao = ["artisas", "Playlists", "Músicas", "Álbuns", "Perfis", "Gêneros e momentos", "Podcasts e programas"] 
+  botao = ["Artistas", "Playlists", "Músicas", "Álbuns", "Perfis", "Gêneros e momentos", "Podcasts e programas"] 
   
 
   resultados: IMusica[] = []
@@ -50,7 +50,6 @@ export class PainelPesquisaComponent implements OnInit {
   }
 
 tocarPesquisa(resultado: IMusica){
-  console.log(this.resultados)
   this.SpotifyService.tocarMusica(resultado)
 }
 }

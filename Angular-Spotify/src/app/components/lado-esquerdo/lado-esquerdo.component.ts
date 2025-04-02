@@ -12,6 +12,7 @@ import { Router} from '@angular/router';
 export class LadoEsquerdoComponent implements OnInit {
 
   menuSelecionado = 'Home';
+  expandirMenu = true; 
 
   playlists: IPlaylist[] = [];
   imagem: string[] = []
@@ -40,6 +41,9 @@ export class LadoEsquerdoComponent implements OnInit {
     this.playlists = await this.spotifyService.buscarPlaylistUsuario();
     
   }
-  
+
+  expandirBiblioteca() {
+    this.expandirMenu = !this.expandirMenu; 
+  }
   
 }
