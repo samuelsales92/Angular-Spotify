@@ -12,6 +12,7 @@
             <img src="{{ resultado.album.imageUrl }}" alt="">
             <button class="play-button" (click)="tocarPesquisa(resultado)"></button>
             <span>{{ obterArtistas(resultado)}}</span> 
+            <span>{{ resultado.titulo }}</span>
             <a style="color: #b3b3b3">Artista</a>
         </button>
     </div>

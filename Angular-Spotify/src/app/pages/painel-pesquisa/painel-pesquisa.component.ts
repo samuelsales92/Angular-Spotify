@@ -35,7 +35,7 @@ export class PainelPesquisaComponent implements OnInit {
     this.pesquisaService.result$
     .pipe(takeUntil(this.destroy$))
     .subscribe((dados) => {
-      this.resultados = dados;
+      this.resultados = dados.slice(0, 16);
     });
   }
 
