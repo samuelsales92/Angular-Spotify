@@ -10,11 +10,8 @@
 
 
         <div class="playlist-scroll">
-            <app-menu-botao *ngFor="let playlist of playlists" [imagens]="playlist.imagemUrl"
-                [descricao]="playlist.nome" [selecionado]="menuSelecionado === playlist.id"
-                (click)="botaoClick(playlist.id)">
-            </app-menu-botao>
-            <app-menu-botao *ngFor="let playlist of playlists" [imagens]="playlist.imagemUrl"
+          
+            <app-menu-botao *ngFor="let playlist of playlista" [imagens]="playlist.imagemUrl" 
                 [descricao]="playlist.nome" [selecionado]="menuSelecionado === playlist.id"
                 (click)="botaoClick(playlist.id)">
             </app-menu-botao>

@@ -17,6 +17,9 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   musica: IMusica = newMusica()
   subs: Subscription[] = []
+  tocando: boolean = false;
+  progresso: number = 0;
+  musicaComponent: IMusica [] = [];
 
   constructor(
     private PlayerService: PlayerService,
@@ -27,6 +30,7 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.obterMusicaTocando();
+    console.log(this.musicaComponent)
   }
 
   ngOnDestroy() {
@@ -51,10 +55,6 @@ export class PlayComponent implements OnInit, OnDestroy {
 
 
 
-
-  tocando: boolean = false;
-  progresso: number = 0;
-
   musicaPlayPause() {
 
     this.tocando = !this.tocando;
@@ -69,11 +69,16 @@ export class PlayComponent implements OnInit, OnDestroy {
   }
 
   avancarMusica() {
-    console.log('Próxima música');
+    this.SpotifyService.avancarMusica();
   }
 
   voltarMusica() {
-    console.log('Música anterior');
+    this.SpotifyService.voltarMusica();
+  }
+
+
+  async obterPlaylisComponentPlay(){
+    this.musicaComponent = await this.SpotifyService.buscarMusicas()
   }
 }
 

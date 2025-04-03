@@ -4,6 +4,7 @@ import { IPlaylist } from '../../Interfaces/IPlaylist';
 import { SpotifyService } from '../../services/Spotify.service';
 import { Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-lado-esquerdo',
   templateUrl: './lado-esquerdo.component.html',
@@ -12,10 +13,15 @@ import { Router} from '@angular/router';
 export class LadoEsquerdoComponent implements OnInit {
 
   menuSelecionado = 'Home';
-  expandirMenu = true; 
+  expandirMenu = false; 
 
   playlists: IPlaylist[] = [];
   imagem: string[] = []
+  playlistsOriginais: IPlaylist[] = [];
+
+  playlista = [
+    { id: 'Home', nome: 'Músicas Curtidas', imagemUrl: 'https://misc.scdn.co/liked-songs/liked-songs-300.jpg' },
+  ];
 
 // Icones
   homeIcone = faHome
@@ -28,8 +34,9 @@ export class LadoEsquerdoComponent implements OnInit {
     private spotifyService: SpotifyService) {}
   
   ngOnInit(): void {
-    this.buscarPlaylist();
     
+    this.buscarPlaylist();
+    this.expandirBiblioteca()
   }
 
   botaoClick(botao: string){
@@ -43,7 +50,9 @@ export class LadoEsquerdoComponent implements OnInit {
   }
 
   expandirBiblioteca() {
-    this.expandirMenu = !this.expandirMenu; 
+    this.expandirMenu = !this.expandirMenu;
+
+  }
   }
   
-}
+

@@ -7,6 +7,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class MenuBotaoComponent {
 
+  @Input() ocultar: boolean = true;
+
   @Input()
   descricao = '';
 
@@ -23,6 +25,8 @@ export class MenuBotaoComponent {
   onClick(){
     this.click.emit();
   }
+
+
 }
 
 
