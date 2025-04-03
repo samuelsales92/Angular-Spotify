@@ -1,5 +1,6 @@
 import { IMusica } from './../Interfaces/IMusica';
 import { IArtista } from "../Interfaces/IArtista";
+import { IPlaylist } from '../Interfaces/IPlaylist';
 
 
 
@@ -7,7 +8,8 @@ export function newArtista(): IArtista {
     return {
         id: '',
         nome: '',
-        imagemUrl: ''
+        imagemUrl: '',
+        musicas: []
     }
 }
 
@@ -26,5 +28,16 @@ export function newMusica(): IMusica {
     
     }
 }
+
+
+export function newPlaylist(): IPlaylist {
+    return {
+        id: '',
+        nome: '',
+        imagemUrl: '',
+        musicas: []
+    }
+}
+
 
 // arquivo responsável para gerar interface vazia (evitar erro)

@@ -30,7 +30,6 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.obterMusicaTocando();
-    console.log(this.musicaComponent)
   }
 
   ngOnDestroy() {

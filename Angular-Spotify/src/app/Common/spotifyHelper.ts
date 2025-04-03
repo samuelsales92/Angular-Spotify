@@ -3,6 +3,8 @@ import { addMilliseconds, format } from "date-fns";
 import { IArtista } from "../Interfaces/IArtista";
 import { IPlaylist } from "../Interfaces/IPlaylist";
 import { IUsuario } from "../Interfaces/IUsuario";
+import { newPlaylist } from './factories';
+
 
 
 
@@ -22,6 +24,12 @@ export function SpotifyPlaylistParaPlaylist(playlist: SpotifyApi.PlaylistObjectS
       nome: playlist.name,
       imagemUrl: playlist.images.pop().url
     };
+  }
+
+
+  export function SpotifySinglePlaylistParaPlaylist(playlist: SpotifyApi.SinglePlaylistResponse): IPlaylist {
+   if(!playlist)
+    return newPlaylist();
   }
 
   export function SpotifyArtistaParaArtista(spotifyArtista: SpotifyApi.ArtistObjectFull): IArtista{
