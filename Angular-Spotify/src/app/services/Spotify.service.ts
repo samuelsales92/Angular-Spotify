@@ -109,7 +109,7 @@ export class SpotifyService {
   }
 
 
-  async tocarMusica(musica: IMusica) {
+  async tocarMusica(musica: IMusica){
     try {
       const dispositivos = await this.spotifyApi.getMyDevices();
       if (!dispositivos.devices.length) {

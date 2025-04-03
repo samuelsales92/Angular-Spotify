@@ -35,7 +35,10 @@ export class PlayComponent implements OnInit, OnDestroy {
 
   obterMusicaTocando() {
     const sub = this.PlayerService.musicaAtual.subscribe(musica => {
-      this.musica = musica;
+      if (musica && musica.titulo !== this.musica?.titulo) { 
+        this.musica = musica;
+        this.tocando = true; 
+      }
     });
     this.subs.push(sub);
   }
@@ -45,24 +48,24 @@ export class PlayComponent implements OnInit, OnDestroy {
     return musicas.artistas.map(artista => artista.nome).join(', ');
   }
 
-  musicaAtual = {
-    titulo: 'Nome da Música',
-    artista: 'Nome do Artista',
-    album: { imageUrl: 'https://via.placeholder.com/50' }
-  };
+
+
+
 
   tocando: boolean = false;
   progresso: number = 0;
 
   musicaPlayPause() {
+
     this.tocando = !this.tocando;
 
-    if (this.tocando && this.musicaAtual) {
+    
+    if (this.tocando) {
       this.SpotifyService.tocarMusica(this.musica);
-    } else {
+    } 
+    else {
       this.SpotifyService.pararMusica(this.musica);
     }
-
   }
 
   avancarMusica() {
