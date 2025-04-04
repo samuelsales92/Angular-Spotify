@@ -53,6 +53,11 @@ export class LadoEsquerdoComponent implements OnInit {
     this.expandirMenu = !this.expandirMenu;
 
   }
+
+  irParaPlaylist(playlistId: string){
+    this.menuSelecionado = playlistId;
+    this.router.navigateByUrl(`player/lista/playlist/${playlistId}`)
+  }
   }
   
 

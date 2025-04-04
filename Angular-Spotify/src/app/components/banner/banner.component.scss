@@ -1,0 +1,46 @@
+@import 'variaveis';
+
+.card {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: inherit;
+        filter: blur(40px);
+        transform: scale(1.8);
+        z-index: 0;
+    }
+
+
+    .artista {
+        position: relative;
+        z-index: 2;
+        color: $text-color;
+        font-size: 1.2rem;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .image {
+        position: relative;
+        height: 120px;
+        width: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        z-index: 1;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+}

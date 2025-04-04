@@ -6,10 +6,6 @@ import { IUsuario } from "../Interfaces/IUsuario";
 import { newPlaylist } from './factories';
 
 
-
-
-
-
 export function SpotifyUserParaUsuario(user: SpotifyApi.CurrentUsersProfileResponse): IUsuario {
     return {
         id: user.id || 'id padrão', 
@@ -30,6 +26,13 @@ export function SpotifyPlaylistParaPlaylist(playlist: SpotifyApi.PlaylistObjectS
   export function SpotifySinglePlaylistParaPlaylist(playlist: SpotifyApi.SinglePlaylistResponse): IPlaylist {
    if(!playlist)
     return newPlaylist();
+
+   return {
+    id: playlist.id,
+    nome: playlist.name,
+    imagemUrl: playlist.images.shift().url,
+    musicas: []
+   }
   }
 
   export function SpotifyArtistaParaArtista(spotifyArtista: SpotifyApi.ArtistObjectFull): IArtista{

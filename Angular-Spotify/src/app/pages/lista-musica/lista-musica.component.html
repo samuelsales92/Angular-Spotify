@@ -1,3 +1,45 @@
-<p>
-  lista-musica works!
-</p>
+<div class="minhas-musicas">
+  <app-banner [ImagemUrl]="bannerImagemUrl" [Text]="bannerTexto"  ></app-banner>
+
+  <button class="play-button"  (click) ="playMusica()">
+        
+  </button>
+
+<table class="table mt-3 ">
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>Título</th>
+          <th>Artista</th>
+          <th class="direita">Tempo</th>
+          
+      </tr>
+  </thead>
+
+  <tbody class="test">
+      <tr *ngFor="let musica of musicas" 
+      (click)="executarMusica(musica)"
+      [class.executando]="musicaAtual && musica.id === musicaAtual.id">
+          <td>
+             <div class="play">    
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>         
+             </div> 
+          </td>
+          <td>{{ musica.titulo}}</td>
+          <td>{{ obterArtistas(musica)}}</td>
+          <td class="direita">{{musica.tempo}}</td>
+
+      </tr>
+  </tbody>
+
+</table>
+</div>
+
+
+
+
+
+

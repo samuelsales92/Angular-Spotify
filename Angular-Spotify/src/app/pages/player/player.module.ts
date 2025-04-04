@@ -27,6 +27,8 @@ import { HomeComponent } from '../home/home.component';
 import { PainelCentralComponent } from '../../components/painel-central/painel-central.component';
 import { PainelPesquisaComponent } from '../painel-pesquisa/painel-pesquisa.component';
 import { PlayComponent } from '../../components/play/play.component';
+import { BannerComponent } from '../../components/banner/banner.component';
+import { ListaMusicaComponent } from '../lista-musica/lista-musica.component';
 
 
 
@@ -43,10 +45,9 @@ import { PlayComponent } from '../../components/play/play.component';
     PainelDireitoComponent,
     TopoPesquisarComponent,
     PainelPesquisaComponent,
-    PlayComponent
-    
-    
-   
+    PlayComponent,
+    ListaMusicaComponent,
+    BannerComponent
     
     ],
   imports: [

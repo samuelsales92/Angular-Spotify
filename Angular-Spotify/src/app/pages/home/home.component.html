@@ -1,5 +1,6 @@
 <div class="minhas-musicas">
-    <app-painel-central class="mt-2 d-block"></app-painel-central>
+    <app-banner [ImagemUrl]="bannerImagemUrl" [Text]="bannerTexto">
+</app-banner>
 
     <button class="play-button"  (click) ="playMusica()">
         
@@ -19,7 +20,7 @@
         <tbody class="test">
             <tr *ngFor="let musica of musicas" 
             (click)="executarMusica(musica)"
-            [class.excutando]="musica.id === musicaAtual.id">
+            [class.executando]="musica.id === musicaAtual.id">
                 <td>
                    <div class="play">    
                         <span></span>

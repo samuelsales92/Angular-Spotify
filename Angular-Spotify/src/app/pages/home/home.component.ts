@@ -20,6 +20,10 @@ export class HomeComponent implements OnDestroy{
 
   subs: Subscription[] = [];
 
+  bannerImagemUrl = 'https://misc.scdn.co/liked-songs/liked-songs-300.jpg'
+  bannerTexto = 'Músicas Curtidas'
+
+
   constructor(
     private spotifyService: SpotifyService,
     private playerService: PlayerService,

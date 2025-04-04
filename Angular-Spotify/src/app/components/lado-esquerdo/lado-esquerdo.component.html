@@ -1,6 +1,4 @@
-
-
-    <div class="menus flex" [ngClass]="{ 'ocultar': false, 'pequeno': expandirMenu }">
+ <div class="menus flex" [ngClass]="{ 'ocultar': false, 'pequeno': expandirMenu }">
 
         <div class="menu-container flex">
             <button class="menu-button" (click)="expandirBiblioteca()">
@@ -17,16 +15,16 @@
             </app-menu-botao>
             <app-menu-botao *ngFor="let playlist of playlists" [imagens]="playlist.imagemUrl"
                 [descricao]="playlist.nome" [selecionado]="menuSelecionado === playlist.id"
-                (click)="botaoClick(playlist.id)">
+                (click)="irParaPlaylist(playlist.id)">
             </app-menu-botao><app-menu-botao *ngFor="let playlist of playlists" [imagens]="playlist.imagemUrl"
                 [descricao]="playlist.nome" [selecionado]="menuSelecionado === playlist.id"
-                (click)="botaoClick(playlist.id)">
+                (click)="irParaPlaylist(playlist.id)">
             </app-menu-botao><app-menu-botao *ngFor="let playlist of playlists" [imagens]="playlist.imagemUrl"
                 [descricao]="playlist.nome" [selecionado]="menuSelecionado === playlist.id"
-                (click)="botaoClick(playlist.id)">
+                (click)="irParaPlaylist(playlist.id)">
             </app-menu-botao><app-menu-botao *ngFor="let playlist of playlists" [imagens]="playlist.imagemUrl"
                 [descricao]="playlist.nome" [selecionado]="menuSelecionado === playlist.id"
-                (click)="botaoClick(playlist.id)">
+                (click)="irParaPlaylist(playlist.id)">
             </app-menu-botao>
         </div>
 
