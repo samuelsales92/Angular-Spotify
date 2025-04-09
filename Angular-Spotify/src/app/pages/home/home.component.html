@@ -6,17 +6,17 @@
         
         </button>
 
-    <table class="table mt-3 ">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Título</th>
-                <th>Artista</th>
-                <th class="direita">Tempo</th>
-                
-            </tr>
-        </thead>
-
+        <table class="table mt-3 ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Artista</th>
+                    <th class="direita">Tempo</th>
+                    
+                </tr>
+            </thead>
+            
         <tbody class="test">
             <tr *ngFor="let musica of musicas" 
             (click)="executarMusica(musica)"

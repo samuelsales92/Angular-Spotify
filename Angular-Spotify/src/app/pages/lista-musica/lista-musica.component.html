@@ -20,7 +20,7 @@
       <tr *ngFor="let musica of musicas" 
       (click)="executarMusica(musica)"
       [class.executando]="musicaAtual && musica.id === musicaAtual.id">
-          <td>
+          <td class="iconeplay">
              <div class="play">    
                   <span></span>
                   <span></span>
@@ -28,15 +28,19 @@
                   <span></span>         
              </div> 
           </td>
-          <td>{{ musica.titulo}}</td>
-          <td>{{ obterArtistas(musica)}}</td>
-          <td class="direita">{{musica.tempo}}</td>
-
+            <td class="musica">{{ musica.titulo}}</td>
+            <td class="artista-musica">{{ obterArtistas(musica)}}</td>
+            <td class="direita">{{musica.tempo}}</td>
       </tr>
   </tbody>
 
 </table>
 </div>
+
+<app-painel-direito 
+    class="painel-direito">
+</app-painel-direito>
+
 
 
 

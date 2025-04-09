@@ -19,6 +19,7 @@
         font-size: .75rem;
         font-weight: 600;
         color: $text-color;
+        
     }
 
     th,
@@ -31,28 +32,25 @@
 
         &:nth-child(1) {
             padding-left: 10px;
+            width: 0%;
         }
     }
 
     tr {
 
         td {
+            padding: 10px 10px 10px 0px;
+            font-weight: 500;
+            font-size: .85rem;
             color: $text-color;
-
+    
+            &:nth-child(1) {
+                padding-left: 10px;
+            }
         }
 
     }
-
-    td {
-        padding: 10px 10px 10px 0px;
-        font-weight: 500;
-        font-size: .85rem;
-        color: $text-color;
-
-        &:nth-child(1) {
-            padding-left: 10px;
-        }
-    }
+   
 }
 
 .play {
@@ -131,10 +129,6 @@
 
 .direita {
     width: 100%;
-    height: 100%;
-    text-align: right;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-
+    justify-content: flex-end;
 }
