@@ -24,7 +24,7 @@
 
     th,
     td {
-        padding-right: 10px;
+        padding-right: 20px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -32,14 +32,13 @@
 
         &:nth-child(1) {
             padding-left: 10px;
-            width: 0%;
         }
     }
 
     tr {
 
         td {
-            padding: 10px 10px 10px 0px;
+            padding: 10px 20px 10px 0px;
             font-weight: 500;
             font-size: .85rem;
             color: $text-color;
@@ -124,11 +123,9 @@
 }
 
 
-
-
-
 .direita {
-    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
 }

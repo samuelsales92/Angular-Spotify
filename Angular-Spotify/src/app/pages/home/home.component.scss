@@ -72,5 +72,32 @@
         transform: scale(0.9);
     }
 
+
+    .musica {
+        width: 50%;
+
+    }
+
+    .artista-musica {
+        width: 50%;
+    }
+
+    img {
+
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 10%;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+
+    .iconeplay{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        
+    }
 }
     

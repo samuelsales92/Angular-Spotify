@@ -11,7 +11,7 @@
         width: 100%;
         max-height: 100vh;
         overflow-y: scroll;
-        
+
 
         &::-webkit-scrollbar {
             display: none;
@@ -27,56 +27,77 @@
 
 
     }
-    
 
 
 
-.test {
-    cursor: pointer;
 
-    :hover {
-        background-color: $icon-color;
-        box-shadow: 0px 0px 5px $icon-color;
-        color: $cor-primaria !important;
+    .test {
+        cursor: pointer;
+
+        :hover {
+            background-color: $icon-color;
+            box-shadow: 0px 0px 5px $icon-color;
+            color: $cor-primaria !important;
+        }
     }
-}
 
-.play-button {
-    margin-top: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: #1DB954;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    
-}
+    .play-button {
+        margin-top: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #1DB954;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
 
-.play-button:hover {
-    transform: scale(1.1);
-}
+    }
 
-.play-button::before {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 16px solid black;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    margin-left: 4px;
-}
+    .play-button:hover {
+        transform: scale(1.1);
+    }
 
-.play-button:active {
-    transform: scale(0.9);
-}
+    .play-button::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 16px solid black;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        margin-left: 4px;
+    }
 
-    .musica{
+    .play-button:active {
+        transform: scale(0.9);
+    }
+
+    .musica {
         width: 50%;
+
     }
+
     .artista-musica {
         width: 50%;
     }
+
+    img {
+
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 10%;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+
+    .iconeplay{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        
+    }
+
 }
