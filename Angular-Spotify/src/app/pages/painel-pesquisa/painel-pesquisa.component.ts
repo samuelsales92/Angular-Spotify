@@ -56,6 +56,6 @@ tocarPesquisa(resultado: IMusica){
 }
 
 artistaSelecionado(musica: IMusica){
-  this.router.navigate(['/player/home'])
+  this.router.navigate(['/player/musica-pesquisada'])
 }
 }
