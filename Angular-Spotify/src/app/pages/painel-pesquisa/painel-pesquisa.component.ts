@@ -6,6 +6,7 @@ import { IMusica } from './../../Interfaces/IMusica';
 import { Component, OnInit} from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 
@@ -25,7 +26,8 @@ export class PainelPesquisaComponent implements OnInit {
 
   constructor(
     private pesquisaService: PesquisaService,
-    private SpotifyService:SpotifyService
+    private SpotifyService:SpotifyService,
+    private router: Router,
   ) { 
  
   }
@@ -51,5 +53,9 @@ export class PainelPesquisaComponent implements OnInit {
 
 tocarPesquisa(resultado: IMusica){
   this.SpotifyService.tocarMusica(resultado)
+}
+
+artistaSelecionado(musica: IMusica){
+  this.router.navigate(['/player/home'])
 }
 }

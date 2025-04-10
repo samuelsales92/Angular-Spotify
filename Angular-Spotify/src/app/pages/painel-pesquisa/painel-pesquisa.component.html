@@ -8,12 +8,14 @@
 
 <div class="resultado">
     <div *ngFor="let resultado of resultados" class="tipopesquisa">
-        <button class="artist-button">
-            <img src="{{ resultado.album.imageUrl }}" alt="">
-            <button class="play-button" (click)="tocarPesquisa(resultado)"></button>
-            <span>{{ obterArtistas(resultado)}}</span> 
-            <span>{{ resultado.titulo }}</span>
-            <a style="color: #b3b3b3">Artista</a>
+      <div class="artist-button" (click)="artistaSelecionado(resultado)">
+        <img [src]="resultado.album.imageUrl" alt="">
+        <span>{{ obterArtistas(resultado) }}</span> 
+        <span>{{ resultado.titulo }}</span>
+        <a style="color: #b3b3b3">Artista</a>
+        <button class="play-button" (click)="tocarPesquisa(resultado); $event.stopPropagation();">
         </button>
+      </div>
     </div>
-</div>
+  </div>
+  
