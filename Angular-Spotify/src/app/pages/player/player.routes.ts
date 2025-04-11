@@ -6,6 +6,7 @@ import { ListaMusicaComponent } from '../lista-musica/lista-musica.component';
 import { MusicaPesquisadaComponent } from '../musica-pesquisada/musica-pesquisada.component';
 
 
+
 export const PlayerRotas: Routes = [
     {
         path: '',
@@ -27,9 +28,9 @@ export const PlayerRotas: Routes = [
             },
 
             {
-                path: 'musica-pesquisada',
+                path: 'musica',
                 component: MusicaPesquisadaComponent
-            }
+            },
         ]
     }
 ]

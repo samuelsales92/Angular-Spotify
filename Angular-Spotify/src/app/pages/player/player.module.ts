@@ -29,6 +29,12 @@ import { PainelPesquisaComponent } from '../painel-pesquisa/painel-pesquisa.comp
 import { PlayComponent } from '../../components/play/play.component';
 import { BannerComponent } from '../../components/banner/banner.component';
 import { ListaMusicaComponent } from '../lista-musica/lista-musica.component';
+import { MusicaPesquisadaComponent } from '../musica-pesquisada/musica-pesquisada.component';
+import { BotaoPlayComponent } from '../../components/botao-play/botao-play.component';
+
+
+
+
 
 
 
@@ -47,7 +53,10 @@ import { ListaMusicaComponent } from '../lista-musica/lista-musica.component';
     PainelPesquisaComponent,
     PlayComponent,
     ListaMusicaComponent,
-    BannerComponent
+    BannerComponent,
+    MusicaPesquisadaComponent,
+    BotaoPlayComponent
+    
     
     ],
   imports: [

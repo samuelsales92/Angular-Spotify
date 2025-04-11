@@ -1,41 +1,36 @@
 <div class="minhas-musicas">
     <app-banner [ImagemUrl]="bannerImagemUrl" [Text]="bannerTexto">
-</app-banner>
+    </app-banner>
+    <app-botao-play (click)="playMusica()"></app-botao-play>
 
-    <button class="play-button" (click) ="playMusica()">
-        </button>
+    <table class="table mt-3 ">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Título</th>
+                <th>Artista</th>
+                <th class="direita">Tempo</th>
 
-        <table class="table mt-3 ">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Título</th>
-                    <th>Artista</th>
-                    <th class="direita">Tempo</th>
-                    
-                </tr>
-            </thead>
-            
-            <tbody class="test">
-                <tr *ngFor="let musica of musicas" 
-                (click)="executarMusica(musica)"
+            </tr>
+        </thead>
+
+        <tbody class="test">
+            <tr *ngFor="let musica of musicas" (click)="executarMusica(musica)"
                 [class.executando]="musicaAtual && musica.id === musicaAtual.id">
-                    <td class="iconeplay">
-                       <div class="play">    
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>        
-                       </div> 
-                       <img src="{{ musica.album.imageUrl }}" alt="">
-                    </td>
-                      <td class="musica">{{ musica.titulo}}</td>
-                      <td class="artista-musica">{{ obterArtistas(musica)}}</td>
-                      <td class="direita">{{musica.tempo}}</td>
-                </tr>
-            </tbody>
+                <td class="iconeplay">
+                    <div class="play">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <img src="{{ musica.album.imageUrl }}" alt="">
+                </td>
+                <td class="musica">{{ musica.titulo}}</td>
+                <td class="artista-musica">{{ obterArtistas(musica)}}</td>
+                <td class="direita">{{musica.tempo}}</td>
+            </tr>
+        </tbody>
     </table>
 
 </div>
-
-

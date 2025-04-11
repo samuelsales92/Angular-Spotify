@@ -1,9 +1,7 @@
 <div class="minhas-musicas">
   <app-banner [ImagemUrl]="bannerImagemUrl" [Text]="bannerTexto"  ></app-banner>
 
-  <button class="play-button"  (click) ="playMusica()">
-        
-  </button>
+  <app-botao-play (click)="playMusica()"></app-botao-play>
 
 <table class="table mt-3 ">
   <thead>

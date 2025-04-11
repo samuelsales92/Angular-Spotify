@@ -29,7 +29,7 @@ async obterMusicaAtual(){
 
   this.timerId = setInterval(async () => {
     await this.obterMusicaAtual();
-  }, 1000)
+  }, 10000)
   }
 
 definirMusicaAtual(musica: IMusica){

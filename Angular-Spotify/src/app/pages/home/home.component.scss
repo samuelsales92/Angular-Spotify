@@ -40,38 +40,6 @@
         }
     }
 
-    .play-button {
-        margin-top: 30px;
-        width: 60px;
-        height: 60px;
-        background-color: #1DB954;
-        border: none;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        
-    }
-
-    .play-button:hover {
-        transform: scale(1.1);
-    }
-
-    .play-button::before {
-        content: "";
-        width: 0;
-        height: 0;
-        border-left: 16px solid black;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        margin-left: 4px;
-    }
-
-    .play-button:active {
-        transform: scale(0.9);
-    }
-
 
     .musica {
         width: 50%;
