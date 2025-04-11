@@ -50,7 +50,7 @@ export class MusicaPesquisadaComponent {
       });
 
     this.bannerImagemUrl = this.resultados[1].album.imageUrl;
-    this.bannerTexto = this.resultados[1].album.nome
+    
   }
 
   ngOnDestroy() {
@@ -60,7 +60,7 @@ export class MusicaPesquisadaComponent {
   }
 
   obterArtistas(resultado: IMusica) {
-    return resultado.artistas.slice(0, 1).map(artista => artista.nome)
+    return resultado.artistas.slice(0, 1).map(artista => this.bannerTexto = artista.nome) 
   }
 
   tocarPesquisa(resultado: IMusica) {

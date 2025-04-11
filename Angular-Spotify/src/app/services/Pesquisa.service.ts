@@ -42,6 +42,13 @@ updateResults(novosResultados: IMusica[]) {
    this.resultadosPesquisa.next(novosResultados)
    this.result = novosResultados;
   }
+
+
+  async buscaMusicasDoArtista(artistaId: string, pais: string = 'BR') {
+    const topTracks = await this.spotifyApi.getArtistTopTracks(artistaId, pais);
+    return topTracks.tracks.map(track => SpotifyTrackParaMusica(track));
+  }
+  
 }
 
 

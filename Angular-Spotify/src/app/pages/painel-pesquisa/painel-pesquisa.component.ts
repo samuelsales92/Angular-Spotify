@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-painel-pesquisa',
   templateUrl: './painel-pesquisa.component.html',
@@ -22,6 +23,8 @@ export class PainelPesquisaComponent implements OnInit {
 
   resultados: IMusica[] = []
 
+  artista: string 
+
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -29,7 +32,7 @@ export class PainelPesquisaComponent implements OnInit {
     private SpotifyService:SpotifyService,
     private router: Router,
   ) { 
- 
+    console.log (this.artistaSelecionadoId)
   }
 
   ngOnInit() {
@@ -39,6 +42,7 @@ export class PainelPesquisaComponent implements OnInit {
     .subscribe((dados) => {
       this.resultados = dados.slice(0, 16);
     });
+
   }
 
   ngOnDestroy() {
@@ -49,14 +53,36 @@ export class PainelPesquisaComponent implements OnInit {
 
   obterArtistas(resultado: IMusica){
     return resultado.artistas.slice(0, 1).map(artista => artista.nome)
+    
   }
 
 tocarPesquisa(resultado: IMusica){
   this.SpotifyService.tocarMusica(resultado)
 }
 
-artistaSelecionado(musica: IMusica){
+/*artistaSelecionado(musica: IMusica){
   this.router.navigate(['/player/musica'])
+}*/
+
+async artistaSelecionadoId(playlist: IMusica) {
+  try {
+    const artistaId = playlist.artistas[0]?.id;
+
+    if (!artistaId) {
+      console.error('Nenhum artista encontrado na playlist.');
+      return;
+    }
+
+    this.artista = artistaId;
+
+    const resultados: IMusica[] = await this.pesquisaService.buscaMusicasDoArtista(artistaId);
+    this.pesquisaService.updateResults(resultados);
+
+    console.log(resultados);
+    this.router.navigate(['/player/musica']);
+  } catch (error) {
+    console.error('Erro ao buscar no Spotify:', error);
+  }
 }
 
 }

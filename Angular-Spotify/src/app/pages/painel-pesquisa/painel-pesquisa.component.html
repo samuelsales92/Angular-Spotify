@@ -8,7 +8,7 @@
 
 <div class="resultado">
     <div *ngFor="let resultado of resultados" class="tipopesquisa">
-      <div class="artist-button" (click)="artistaSelecionado(resultado)">
+      <div class="artist-button" (click)="artistaSelecionadoId(resultado)">
         <img [src]="resultado.album.imageUrl" alt="">
         <span>{{ obterArtistas(resultado) }}</span> 
         <span>{{ resultado.titulo }}</span>
