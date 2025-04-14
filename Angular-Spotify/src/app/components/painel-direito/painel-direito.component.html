@@ -3,6 +3,7 @@
       <div class="video-info">
         <div >{{ musicaAtual.titulo }}</div>
         <div >{{ obterArtistas(musicaAtual) }}</div>
+        <img [src]="musicaAtual?.album.imageUrl" alt="Capa do Álbum" />
       </div>
 </div>
 
