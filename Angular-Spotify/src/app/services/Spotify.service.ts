@@ -9,7 +9,7 @@ import { IArtista } from '../Interfaces/IArtista';
 
 import SpotifyWebApi from 'spotify-web-api-js';
 
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 
 
@@ -19,6 +19,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class SpotifyService {
+
+
+  trocarVideo = new Subject<void>(); 
 
   private resultadosPesquisa = new BehaviorSubject<IMusica[]>([]); 
   resultados$ = this.resultadosPesquisa.asObservable();
@@ -142,6 +145,8 @@ export class SpotifyService {
     } catch (error) {
       console.error(' Erro ao tentar tocar a música:', error);
     }
+
+    this.trocarVideo.next();
   }
 
 

@@ -60,10 +60,6 @@ tocarPesquisa(resultado: IMusica){
   this.SpotifyService.tocarMusica(resultado)
 }
 
-/*artistaSelecionado(musica: IMusica){
-  this.router.navigate(['/player/musica'])
-}*/
-
 async artistaSelecionadoId(playlist: IMusica) {
   try {
     const artistaId = playlist.artistas[0]?.id;
@@ -78,7 +74,6 @@ async artistaSelecionadoId(playlist: IMusica) {
     const resultados: IMusica[] = await this.pesquisaService.buscaMusicasDoArtista(artistaId);
     this.pesquisaService.updateResults(resultados);
 
-    console.log(resultados);
     this.router.navigate(['/player/musica']);
   } catch (error) {
     console.error('Erro ao buscar no Spotify:', error);

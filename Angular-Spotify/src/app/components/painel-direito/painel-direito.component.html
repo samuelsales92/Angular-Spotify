@@ -1,1 +1,8 @@
-<p>painel-direito workssssssssssss!</p>
+<div class="component-video">
+    <video #videoPlayer class="video" [attr.src]="videoSelecionado" autoplay muted loop></video>
+      <div class="video-info">
+        <div >{{ musicaAtual.titulo }}</div>
+        <div >{{ obterArtistas(musicaAtual) }}</div>
+      </div>
+</div>
+

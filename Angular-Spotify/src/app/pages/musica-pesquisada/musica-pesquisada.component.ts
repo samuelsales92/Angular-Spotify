@@ -26,6 +26,8 @@ export class MusicaPesquisadaComponent {
   resultados: IMusica[] = []
   musicaAtual: IMusica = newMusica();
 
+  mostrarPainel = false;
+
   subs: Subscription[] = []
 
   private destroy$ = new Subject<void>();
@@ -70,6 +72,7 @@ export class MusicaPesquisadaComponent {
   async executarMusica(musica: IMusica) {
     await this.SpotifyService.tocarMusica(musica);
     this.PlayerService.definirMusicaAtual(musica)
+    this.mostrarPainel = true
   }
 
 

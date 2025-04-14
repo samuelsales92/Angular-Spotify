@@ -1,8 +1,12 @@
 import { Component, OnDestroy,  } from '@angular/core';
+
 import { IMusica } from '../../Interfaces/IMusica';
+import { newMusica } from '../../Common/factories';
+
 import { SpotifyService } from '../../services/Spotify.service';
 import { PlayerService } from '../../services/Player.service';
-import { newMusica } from '../../Common/factories';
+
+
 import { Subscription } from 'rxjs';
 
 
@@ -16,7 +20,7 @@ export class HomeComponent implements OnDestroy{
 
   musicas: IMusica[] = []
   musicaAtual: IMusica = newMusica();
-
+  mostrarPainel = false;
 
   subs: Subscription[] = [];
 
@@ -39,6 +43,7 @@ export class HomeComponent implements OnDestroy{
 
   ngOnDestroy(): void {
     this.subs.forEach(sub => sub.unsubscribe());
+    this.mostrarPainel = false
   }
 
 
@@ -62,12 +67,13 @@ export class HomeComponent implements OnDestroy{
   async executarMusica(musica: IMusica){
     await this.spotifyService.tocarMusica(musica);
     this.playerService.definirMusicaAtual(musica)
+    this.mostrarPainel = true;
   };
 
 
   async playMusica(){
     this.spotifyService.tocarMusica(this.musicas[0]);
-   
+    
   }
 
 }

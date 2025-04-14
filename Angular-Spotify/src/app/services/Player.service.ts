@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IMusica } from '../Interfaces/IMusica';
 import { newMusica } from '../Common/factories';
-import { BehaviorSubject} from 'rxjs';
+import { BehaviorSubject, Subject} from 'rxjs';
 import { SpotifyService } from './Spotify.service';
 
 
@@ -17,7 +17,6 @@ constructor(private spotifyService: SpotifyService) {
   this.obterMusicaAtual();
 
  }
-
 
 
 async obterMusicaAtual(){
