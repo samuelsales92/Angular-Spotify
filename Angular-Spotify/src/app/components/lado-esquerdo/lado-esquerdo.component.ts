@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { faGuitar, faHome, faMusic, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { IPlaylist } from '../../Interfaces/IPlaylist';
-import { SpotifyService } from '../../services/Spotify.service';
 import { Router} from '@angular/router';
+
+import { SpotifyService } from '../../services/Spotify.service';
+
+import { IPlaylist } from '../../Interfaces/IPlaylist';
+
+import { faGuitar, faHome, faMusic, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({

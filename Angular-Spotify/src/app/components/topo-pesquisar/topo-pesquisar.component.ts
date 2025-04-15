@@ -1,12 +1,10 @@
-
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PesquisaService } from './../../services/Pesquisa.service';
-import { Router } from '@angular/router';
 
 import { IMusica } from '../../Interfaces/IMusica';
 import { FormControl } from '@angular/forms';
-
 
 
 @Component({
@@ -41,7 +39,6 @@ export class TopoPesquisarComponent implements OnInit {
 
     this.pesquisaService.obterPesquisaMusica(value, ['artist']).then((resultados: IMusica[]) => {
       this.pesquisaService.updateResults(resultados);
-     // console.log(resultados)
       this.router.navigate(['/player/search'])
 
     }).catch(error => {

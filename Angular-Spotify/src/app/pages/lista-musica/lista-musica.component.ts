@@ -1,9 +1,12 @@
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { PlayerService } from './../../services/Player.service';
 import { SpotifyService } from './../../services/Spotify.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+
 import { IMusica } from '../../Interfaces/IMusica';
 import { newMusica } from '../../Common/factories';
-import { ActivatedRoute } from '@angular/router';
+
 import { Subscription } from 'rxjs';
 
 @Component({

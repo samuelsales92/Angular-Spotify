@@ -6,7 +6,7 @@ div{
     align-items: center;
     height: 100%;
     width: 100%;
-    color: $cor-primaria;
+    color: white;
     border-top: 1px solid $preto-transparent-20;
 
     img {
@@ -26,5 +26,6 @@ div{
     .icone {
         flex-grow: 0;
         cursor: pointer;
+        padding-left: 5px;
     }
 }
